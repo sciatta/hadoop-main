@@ -1,10 +1,10 @@
 package com.sciatta.hadoop.hdfs.example.api.impl;
 
 import com.sciatta.hadoop.hdfs.example.api.AbstractOperate;
-import org.apache.commons.io.IOUtils;
 import org.apache.hadoop.fs.FSDataInputStream;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.IOUtils;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -23,10 +23,9 @@ public class GetFileByStream extends AbstractOperate {
         FSDataInputStream is = fileSystem.open(new Path("/main/hello"));
         FileOutputStream os = new FileOutputStream(new File("/Users/yangxiaoyu/work/test/nicetomeetyou"));
 
-        IOUtils.copy(is, os);
-
-        IOUtils.closeQuietly(is);
-        IOUtils.closeQuietly(os);
+        IOUtils.copyBytes(is, os, BUFFER_SIZE);
+        IOUtils.closeStream(is);
+        IOUtils.closeStream(os);
         fileSystem.close();
     }
 

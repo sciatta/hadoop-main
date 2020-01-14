@@ -1,10 +1,10 @@
 package com.sciatta.hadoop.hdfs.example.api.impl;
 
 import com.sciatta.hadoop.hdfs.example.api.AbstractOperate;
-import org.apache.commons.io.IOUtils;
 import org.apache.hadoop.fs.FSDataOutputStream;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.IOUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -26,11 +26,11 @@ public class PutFileByStream extends AbstractOperate {
         FSDataOutputStream fos = fileSystem.create(new Path("/main/hi"));    // 目录不存在，hdfs自动创建
 
         // 流对拷
-        IOUtils.copy(fis, fos);
+        IOUtils.copyBytes(fis, fos, BUFFER_SIZE);
 
         // 释放资源
-        IOUtils.closeQuietly(fos);
-        IOUtils.closeQuietly(fis);
+        IOUtils.closeStream(fis);
+        IOUtils.closeStream(fos);
         fileSystem.close();
     }
 

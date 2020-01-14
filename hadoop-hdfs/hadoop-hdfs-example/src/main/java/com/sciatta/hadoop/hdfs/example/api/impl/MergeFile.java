@@ -1,9 +1,9 @@
 package com.sciatta.hadoop.hdfs.example.api.impl;
 
 import com.sciatta.hadoop.hdfs.example.api.AbstractOperate;
-import org.apache.commons.io.IOUtils;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.*;
+import org.apache.hadoop.io.IOUtils;
 
 import java.io.IOException;
 import java.net.URI;
@@ -18,7 +18,7 @@ public class MergeFile extends AbstractOperate {
     @Override
     protected void doWork() throws IOException, URISyntaxException, InterruptedException {
         // hdfs文件系统
-        FileSystem fileSystem = FileSystem.get(new URI(CFG_DEFAULT_FS_V), new Configuration(), "hadoop");
+        FileSystem fileSystem = FileSystem.get(getConf());
         // local文件系统
         LocalFileSystem localFileSystem = FileSystem.getLocal(new Configuration());
 
@@ -33,11 +33,11 @@ public class MergeFile extends AbstractOperate {
             // local输入流
             FSDataInputStream fsDataInputStream = localFileSystem.open(path);
             // 小文件输出到一个hdfs输出流，追加到末尾
-            IOUtils.copy(fsDataInputStream, fsDataOutputStream);
-            IOUtils.closeQuietly(fsDataInputStream);
+            IOUtils.copyBytes(fsDataInputStream, fsDataOutputStream, BUFFER_SIZE);
+            IOUtils.closeStream(fsDataInputStream);
         }
 
-        IOUtils.closeQuietly(fsDataOutputStream);
+        IOUtils.closeStream(fsDataOutputStream);
         localFileSystem.close();
         fileSystem.close();
     }

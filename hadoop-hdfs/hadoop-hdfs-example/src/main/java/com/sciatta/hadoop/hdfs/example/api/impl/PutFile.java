@@ -18,7 +18,8 @@ public class PutFile extends AbstractOperate {
 
         // 目的地址如果是文件，则创建文件
         // 目的地址如果是目录，则在目录下创建文件
-        fileSystem.copyFromLocalFile(new Path("/Users/yangxiaoyu/work/test/hello"), new Path("/main/hello"));
+        // 源地址和目的地址都可以是目录，将源地址下的所有文件上传至目的地址的目录下
+        fileSystem.copyFromLocalFile(new Path("/Users/yangxiaoyu/work/test/"), new Path("/test_trash"));
 
         fileSystem.close();
     }
