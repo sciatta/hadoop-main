@@ -9,18 +9,18 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>hadoop-hdfs</module>
+        <module>hadoop-mapreduce</module>
     </modules>
     <packaging>pom</packaging>
 
     <repositories>
-        <!--<repository>
-            <id>alimaven</id>
+        <repository>
+            <id>aliyun</id>
             <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
-        </repository>-->
-
+        </repository>
         <repository>
             <id>cloudera</id>
             <url>https://repository.cloudera.com/artifactory/cloudera-repos/</url>
@@ -56,7 +56,7 @@
             </dependency>
             <dependency>
                 <groupId>org.apache.hadoop</groupId>
-                <artifactId>hadoop-mapreduce-client-core</artifactId>
+                <artifactId>hadoop-mapreduce-client-common</artifactId>
                 <version>${hadoop.version}</version>
             </dependency>
             <!-- junit -->
