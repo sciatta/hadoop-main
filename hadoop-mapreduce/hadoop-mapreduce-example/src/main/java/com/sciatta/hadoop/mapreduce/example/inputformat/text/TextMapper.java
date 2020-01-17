@@ -1,4 +1,4 @@
-package com.sciatta.hadoop.mapreduce.example.mapper;
+package com.sciatta.hadoop.mapreduce.example.inputformat.text;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
@@ -10,9 +10,9 @@ import java.io.IOException;
 /**
  * Created by yangxiaoyu on 2020/1/15<br>
  * All Rights Reserved(C) 2017 - 2020 SCIATTA<br><p/>
- * WordCountMapper
+ * TextMapper
  */
-public class WordCountMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
+public class TextMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
     private Text outputKey = new Text();
     private IntWritable outputValue = new IntWritable(1);
 
