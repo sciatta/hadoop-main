@@ -60,6 +60,7 @@ local.properties
 *.orig
 classes/
 *.kotlin_module
+**/target/
 
 ######################
 # Visual Studio Code
