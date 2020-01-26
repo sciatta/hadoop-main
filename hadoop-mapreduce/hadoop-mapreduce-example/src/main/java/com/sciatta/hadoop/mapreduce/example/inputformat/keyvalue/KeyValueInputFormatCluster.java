@@ -1,6 +1,5 @@
 package com.sciatta.hadoop.mapreduce.example.inputformat.keyvalue;
 
-import com.sciatta.hadoop.mapreduce.example.inputformat.keyvalue.KeyValueInputFormatJobCluster;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.util.ToolRunner;
 

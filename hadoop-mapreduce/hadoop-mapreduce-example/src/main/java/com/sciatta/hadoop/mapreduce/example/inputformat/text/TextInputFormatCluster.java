@@ -1,6 +1,5 @@
 package com.sciatta.hadoop.mapreduce.example.inputformat.text;
 
-import com.sciatta.hadoop.mapreduce.example.inputformat.text.TextInputFormatJobCluster;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.util.ToolRunner;
 

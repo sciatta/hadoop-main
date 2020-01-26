@@ -62,7 +62,6 @@ public abstract class AbstractJobRunner extends Configured implements Tool {
     }
 
     protected void configPartition(Job job) {
-
     }
 
     protected void configReduceTask(Job job) {

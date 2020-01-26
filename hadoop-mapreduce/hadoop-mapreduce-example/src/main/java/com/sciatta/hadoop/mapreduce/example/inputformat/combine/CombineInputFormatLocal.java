@@ -1,6 +1,5 @@
 package com.sciatta.hadoop.mapreduce.example.inputformat.combine;
 
-import com.sciatta.hadoop.mapreduce.example.inputformat.combine.CombineInputFormatJobLocal;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.util.ToolRunner;
 
