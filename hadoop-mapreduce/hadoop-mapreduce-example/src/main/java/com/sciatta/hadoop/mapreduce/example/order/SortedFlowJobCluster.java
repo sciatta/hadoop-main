@@ -1,15 +1,14 @@
-package com.sciatta.hadoop.mapreduce.example.partition.flow;
+package com.sciatta.hadoop.mapreduce.example.order;
 
 /**
- * Created by yangxiaoyu on 2020/1/17<br>
+ * Created by yangxiaoyu on 2020/1/26<br>
  * All Rights Reserved(C) 2017 - 2020 SCIATTA<br><p/>
- * FlowPartitionJobCluster
+ * SortedFlowJobCluster
  */
-public class FlowPartitionJobCluster extends FlowPartitionJobLocal {
-
+public class SortedFlowJobCluster extends SortedFlowJobLocal {
     @Override
     protected Class<?> getJobClass() {
-        return FlowPartitionJobCluster.class;
+        return SortedFlowJobCluster.class;
     }
 
     @Override

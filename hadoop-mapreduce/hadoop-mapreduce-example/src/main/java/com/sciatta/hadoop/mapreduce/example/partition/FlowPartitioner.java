@@ -1,4 +1,4 @@
-package com.sciatta.hadoop.mapreduce.example.partition.flow;
+package com.sciatta.hadoop.mapreduce.example.partition;
 
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Partitioner;

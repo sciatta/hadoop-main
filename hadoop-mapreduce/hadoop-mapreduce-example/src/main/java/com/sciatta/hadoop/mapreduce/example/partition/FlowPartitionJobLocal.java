@@ -1,4 +1,4 @@
-package com.sciatta.hadoop.mapreduce.example.partition.flow;
+package com.sciatta.hadoop.mapreduce.example.partition;
 
 import com.sciatta.hadoop.mapreduce.example.AbstractJobRunner;
 import org.apache.hadoop.fs.Path;

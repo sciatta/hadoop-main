@@ -1,4 +1,4 @@
-package com.sciatta.hadoop.mapreduce.example.partition.flow;
+package com.sciatta.hadoop.mapreduce.example.partition;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.util.ToolRunner;
