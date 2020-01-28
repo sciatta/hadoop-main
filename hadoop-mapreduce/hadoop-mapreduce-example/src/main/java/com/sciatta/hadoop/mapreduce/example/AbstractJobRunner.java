@@ -34,8 +34,10 @@ public abstract class AbstractJobRunner extends Configured implements Tool {
         // 4 Order
 
         // 5 Combine
+        configCombiner(job);
 
         // 6 Group
+        configGroup(job);
 
         // 7 ReduceTask
         configReduceTask(job);
@@ -62,6 +64,14 @@ public abstract class AbstractJobRunner extends Configured implements Tool {
     }
 
     protected void configPartition(Job job) {
+    }
+
+    protected void configCombiner(Job job) {
+
+    }
+
+    protected void configGroup(Job job) {
+
     }
 
     protected void configReduceTask(Job job) {
