@@ -1,5 +1,6 @@
 package com.sciatta.hadoop.mapreduce.example;
 
+import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.mapreduce.*;
 import org.apache.hadoop.util.Tool;
@@ -21,6 +22,8 @@ public abstract class AbstractJobRunner extends Configured implements Tool {
     public int run(String[] args) throws Exception {
         Job job = Job.getInstance(super.getConf(), getJobName());
         job.setJarByClass(getJobClass());   // 集群运行需要设置
+
+        initConfig(job.getConfiguration());
 
         // 1 InputFormat
         configInputFormat(job);
@@ -52,6 +55,10 @@ public abstract class AbstractJobRunner extends Configured implements Tool {
     protected abstract String getJobName();
 
     protected abstract Class<?> getJobClass();
+
+    protected void initConfig(Configuration configuration) {
+
+    }
 
     protected void configInputFormat(Job job) throws IOException {
     }
