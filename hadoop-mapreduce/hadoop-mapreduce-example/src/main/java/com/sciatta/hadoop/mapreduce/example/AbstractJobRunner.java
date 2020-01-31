@@ -25,6 +25,8 @@ public abstract class AbstractJobRunner extends Configured implements Tool {
 
         initConfig(job.getConfiguration());
 
+        addCache(job);
+
         // 1 InputFormat
         configInputFormat(job);
 
@@ -58,6 +60,9 @@ public abstract class AbstractJobRunner extends Configured implements Tool {
 
     protected void initConfig(Configuration configuration) {
 
+    }
+
+    protected void addCache(Job job) {
     }
 
     protected void configInputFormat(Job job) throws IOException {
