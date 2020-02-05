@@ -33,5 +33,15 @@ public class TextInputFormatJobCluster extends TextInputFormatJobLocal {
         configuration.set("mapreduce.output.fileoutputformat.compress", "true");
         configuration.set("mapreduce.output.fileoutputformat.compress.type", "RECORD");
         configuration.set("mapreduce.output.fileoutputformat.compress.codec", "org.apache.hadoop.io.compress.SnappyCodec");
+
+        // 当前用户和用户组是 hadoop hadoop
+        // 不设置队列时，使用当前系统用户和用户组提交队列，提交至队列root.hadoop
+
+        // 不可提交至队列root.develop(也可以简写成develop) ，因为其限制用户和用户组是develop develop
+        // configuration.set("mapred.job.queue.name", "develop");
+
+        // 当前用户和用户组是develop develop
+        // 可提交至队列root.develop
+        // configuration.set("mapred.job.queue.name", "develop");
     }
 }
