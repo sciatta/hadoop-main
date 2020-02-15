@@ -15,12 +15,17 @@
     <dependencies>
         <!-- hbase -->
         <dependency>
-            <groupId>org.apache.HBase</groupId>
+            <groupId>org.apache.hbase</groupId>
             <artifactId>hbase-client</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.apache.HBase</groupId>
+            <groupId>org.apache.hbase</groupId>
             <artifactId>hbase-server</artifactId>
+        </dependency>
+        <!-- junit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
         </dependency>
     </dependencies>
 

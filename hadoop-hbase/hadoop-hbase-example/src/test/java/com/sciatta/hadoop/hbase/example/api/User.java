@@ -1,4 +1,4 @@
-package com.sciatta.hadoop.hbase.example.user.impl;
+package com.sciatta.hadoop.hbase.example.api;
 
 /**
  * Created by yangxiaoyu on 2020/2/13<br>
