@@ -44,8 +44,9 @@
         <curator.version>4.2.0</curator.version>
         <hive.version>1.1.0-cdh5.14.2</hive.version>
         <hbase.version>1.2.0-cdh5.14.2</hbase.version>
-        <junit.version>4.11</junit.version>
         <spark.version>2.3.3</spark.version>
+        <junit.version>4.11</junit.version>
+        <mysql.version>5.1.38</mysql.version>
 
         <maven-compiler-plugin.version>3.6.0</maven-compiler-plugin.version>
         <scala-maven-plugin.version>3.2.2</scala-maven-plugin.version>
@@ -123,6 +124,23 @@
                 <artifactId>spark-core_2.11</artifactId>
                 <version>${spark.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.apache.spark</groupId>
+                <artifactId>spark-sql_2.11</artifactId>
+                <version>${spark.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.spark</groupId>
+                <artifactId>spark-hive_2.11</artifactId>
+                <version>${spark.version}</version>
+            </dependency>
+            <!-- mysql -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+                <scope>runtime</scope>
+            </dependency>
             <!-- junit -->
             <dependency>
                 <groupId>junit</groupId>
@@ -136,7 +154,6 @@
     <build>
         <sourceDirectory>src/main/scala</sourceDirectory>
         <testSourceDirectory>src/test/scala</testSourceDirectory>
-
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -151,7 +168,6 @@
                 </plugin>
             </plugins>
         </pluginManagement>
-
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
