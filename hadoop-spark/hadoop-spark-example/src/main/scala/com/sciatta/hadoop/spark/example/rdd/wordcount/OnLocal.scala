@@ -1,4 +1,4 @@
-package com.sciatta.hadoop.spark.example.wordcount
+package com.sciatta.hadoop.spark.example.rdd.wordcount
 
 import org.apache.spark.rdd.RDD
 import org.apache.spark.{SparkConf, SparkContext}
