@@ -8,7 +8,7 @@ import java.sql.*;
  * QueryTable
  */
 public class QueryTable {
-    private static final String DB_URL = "jdbc:hive2://192.168.2.102:10000/myhive";
+    private static final String DB_URL = "jdbc:hive2://node03:10000/myhive";
 
     public static void main(String[] args) throws ClassNotFoundException {
         Class.forName("org.apache.hive.jdbc.HiveDriver");
@@ -26,7 +26,6 @@ public class QueryTable {
                 String name = rs.getString(2);
                 System.out.println(id + "\t" + name);
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
