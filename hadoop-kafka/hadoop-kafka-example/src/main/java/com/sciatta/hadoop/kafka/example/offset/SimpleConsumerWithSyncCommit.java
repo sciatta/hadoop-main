@@ -1,13 +1,13 @@
 package com.sciatta.hadoop.kafka.example.offset;
 
+import com.sciatta.hadoop.kafka.example.UtilFactory;
+import org.apache.kafka.clients.consumer.Consumer;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
-import org.apache.kafka.clients.consumer.KafkaConsumer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Properties;
 
 /**
  * Created by yangxiaoyu on 2020/5/3<br>
@@ -16,23 +16,9 @@ import java.util.Properties;
  */
 public class SimpleConsumerWithSyncCommit {
     public static void main(String[] args) {
-        Properties props = new Properties();
 
-        // kafka集群
-        props.put("bootstrap.servers", "node01:9092,node02:9092,node03:9092");
-        // 消费者组
-        props.put("group.id", "consumer-sync");
-        // 手动提交偏移量
-        props.put("enable.auto.commit", "false");
-        // key序列化器
-        props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
-        // value序列化器
-        props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
-        // 每次最大poll条数，默认500
-        props.put("max.poll.records", "20");
-
-        KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
-        consumer.subscribe(Arrays.asList(SimpleProducer.topic));
+        Consumer<String, String> consumer = UtilFactory.getKafkaConsumer(UtilFactory.CONSUMER_SYNC_COMMIT, false);
+        consumer.subscribe(Arrays.asList(UtilFactory.TOPIC_TEST));
 
         // 消息本地缓存数，当大于等于此值时处理并提交offset
         final int minBatchSize = 50;
@@ -60,7 +46,7 @@ public class SimpleConsumerWithSyncCommit {
         }
     }
 
-    private static void doConsume(List<ConsumerRecord<String, String>> buffer, KafkaConsumer<String, String> consumer) {
+    private static void doConsume(List<ConsumerRecord<String, String>> buffer, Consumer<String, String> consumer) {
         System.out.println("处理缓存数据：" + buffer.size());
         consumer.commitSync();
         buffer.clear();
