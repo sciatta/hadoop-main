@@ -16,6 +16,7 @@
         <module>hadoop-scala</module>
         <module>hadoop-spark</module>
         <module>hadoop-kafka</module>
+        <module>hadoop-flume</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -47,6 +48,7 @@
         <hbase.version>1.2.0-cdh5.14.2</hbase.version>
         <kafka.version>1.0.1</kafka.version>
         <spark.version>2.3.3</spark.version>
+        <flume.version>1.6.0-cdh5.14.2</flume.version>
         <junit.version>4.11</junit.version>
         <mysql.version>5.1.38</mysql.version>
         <slf4j.version>1.7.25</slf4j.version>
@@ -143,6 +145,12 @@
                 <groupId>org.apache.spark</groupId>
                 <artifactId>spark-hive_2.11</artifactId>
                 <version>${spark.version}</version>
+            </dependency>
+            <!-- flume -->
+            <dependency>
+                <groupId>org.apache.flume</groupId>
+                <artifactId>flume-ng-core</artifactId>
+                <version>${flume.version}</version>
             </dependency>
             <!-- mysql -->
             <dependency>
