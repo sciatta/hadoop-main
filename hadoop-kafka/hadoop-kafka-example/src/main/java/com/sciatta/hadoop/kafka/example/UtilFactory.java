@@ -34,7 +34,7 @@ public class UtilFactory {
         // -1 / all 等待leader应答，并且leader已同步ISR列表
         props.put("acks", "1");
 
-        // 重试次数
+        // 重试次数；默认为0表示不会重试
         props.put("retries", 0);
 
         // 缓冲区大小
