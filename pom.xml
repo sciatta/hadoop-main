@@ -17,6 +17,7 @@
         <module>hadoop-spark</module>
         <module>hadoop-kafka</module>
         <module>hadoop-flume</module>
+        <module>hadoop-java</module>
     </modules>
     <packaging>pom</packaging>
 
