@@ -15,6 +15,7 @@
         <module>hadoop-hive-example</module>
         <module>hadoop-hive-video</module>
         <module>hadoop-hive-gamecenter</module>
+        <module>hadoop-hive-gamedata</module>
     </modules>
 
 </project>
