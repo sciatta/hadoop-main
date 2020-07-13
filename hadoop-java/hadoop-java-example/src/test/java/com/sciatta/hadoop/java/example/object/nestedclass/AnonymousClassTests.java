@@ -2,6 +2,7 @@ package com.sciatta.hadoop.java.example.object.nestedclass;
 
 import com.sciatta.hadoop.java.example.object.nestedclass.anonymous.Books;
 import com.sciatta.hadoop.java.example.object.nestedclass.anonymous.HelloWorldAnonymousClasses;
+import com.sciatta.hadoop.java.example.object.nestedclass.anonymous.UseArg;
 import org.junit.Test;
 
 /**
@@ -20,5 +21,17 @@ public class AnonymousClassTests {
     public void testAnonymousByInterface() {
         HelloWorldAnonymousClasses helloWorldAnonymousClasses = new HelloWorldAnonymousClasses();
         helloWorldAnonymousClasses.sayHello();
+    }
+
+    @Test
+    public void testUseArg() {
+        UseArg useArg = new UseArg();
+        UseArg.In in = new UseArg.In("hello");
+
+        UseArg.Out out = useArg.process(in);
+        System.out.println(out.getInfo());
+
+        out = useArg.echo("hi");
+        System.out.println(out.getInfo());
     }
 }
