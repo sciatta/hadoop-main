@@ -82,4 +82,23 @@ public class APITests {
         System.out.println(Integer.toHexString(num >>> -4)); // 00000001
         System.out.println(Integer.toHexString(num >>> -4 + 32)); // 00000001
     }
+
+    @Test
+    public void testAdd() {
+        int lastBlockReport = 10;
+        int monotonicNow = 50;
+        int blockReportInterval = 6;
+        // 先向下取整，然后再做乘法
+        lastBlockReport += (monotonicNow - lastBlockReport) /
+                blockReportInterval * blockReportInterval;
+
+        assertEquals(46, lastBlockReport);
+    }
+
+    @Test
+    public void testFloor() {
+        // 向下取整
+        assertEquals(3, 10 / 3);    // 3.3x
+        assertEquals(1, 10 / 6);    // 1.6x
+    }
 }
