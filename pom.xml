@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.sciatta.hadoop</groupId>
-    <artifactId>hadoop-main</artifactId>
+    <artifactId>hadoop-dev</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>hadoop-hdfs</module>
