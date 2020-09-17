@@ -1,4 +1,4 @@
-package com.sciatta.hadoop.mapreduce.example.phase.inputformat.custom;
+package com.sciatta.hadoop.mapreduce.example.phase.inputformat.custominputformat;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.util.Tool;
@@ -7,7 +7,7 @@ import org.apache.hadoop.util.ToolRunner;
 /**
  * Created by yangxiaoyu on 2020/1/26<br>
  * All Rights Reserved(C) 2017 - 2020 SCIATTA<br><p/>
- * CustomSequenceFileMain
+ * CustomSequenceFileMain 读取路径下所有小文件，然后输出为一个大的SequenceFile
  */
 public class CustomSequenceFileMain {
     public static void main(String[] args) throws Exception {

@@ -47,9 +47,9 @@ public class FlowPartitionJobLocal extends AbstractJobRunner {
     @Override
     protected void configPartition(Job job) {
         job.setPartitionerClass(FlowPartitioner.class);
-        // 指定分区0-5，如果实际ReduceTasks指定3，则会报错
-        // 指定分区0-5，如果实际ReduceTasks指定9，则会生成 part-r-00000 - part-r-00008 共9个文件，6 -- 8 为空文件
-        job.setNumReduceTasks(4);   // Partition == ReduceTask
+        // 指定分区0-5，如果实际ReduceTasks指定3(0-2)，则会报错
+        // 指定分区0-5，如果实际ReduceTasks指定9(0-8)，则会生成 part-r-00000 - part-r-00008 共9个文件，6 -- 8 为空文件
+        job.setNumReduceTasks(4);   // Partition == ReduceTask 指定ReduceTask的数量，就可以间接指定分区数
     }
 
     @Override

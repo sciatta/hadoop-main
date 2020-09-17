@@ -19,6 +19,7 @@ public class KeyValueMapper extends Mapper<Text, Text, Text, IntWritable> {
         // hello@zolen@ input datas today
         // key -- hello
         // value -- zolen@ input datas today
+        // @zolen@ -> 只能取第一个字符作为分隔符，即@
         context.write(key, result);
     }
 }

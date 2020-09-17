@@ -18,8 +18,9 @@ public class FlowPartitioner extends Partitioner<Text, FlowInfo> {
     }
 
     public int getPartition(Text text, FlowInfo flowInfo, int numPartitions) {
-        int partition = withPartitions(Integer.MAX_VALUE, numPartitions);
-
+        // int partition = withPartitions(Integer.MAX_VALUE, numPartitions);
+        int partition;
+        // numPartitions 是分区的总数量
         if (text != null && text.toString() != null) {
             String test = text.toString();
             if (test.startsWith("135")) {
@@ -36,7 +37,7 @@ public class FlowPartitioner extends Partitioner<Text, FlowInfo> {
                 partition = withPartitions(5, numPartitions);
             }
         } else {
-            // 异常数据
+            // 异常数据 放到最后一个分区
             partition = withPartitions(Integer.MAX_VALUE, numPartitions);
         }
 

@@ -12,7 +12,7 @@ import java.io.IOException;
  * WordCountReducer
  */
 public class TextReducer extends Reducer<Text, IntWritable, Text, IntWritable> {
-    private static final String KV_COUNT = "KV_COUNT";
+    private static final String KV_COUNT = "KV_COUNT";  // 组别
     private static final String K_COUNT = "K_COUNT";
     private static final String V_COUNT = "V_COUNT";
 
@@ -22,6 +22,7 @@ public class TextReducer extends Reducer<Text, IntWritable, Text, IntWritable> {
     protected void reduce(Text key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
         int result = 0;
 
+        // 全局计数器
         context.getCounter(KV_COUNT, K_COUNT).increment(1); // 计数器：统计key数量
 
         for (IntWritable i : values) {

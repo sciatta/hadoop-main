@@ -1,4 +1,4 @@
-package com.sciatta.hadoop.mapreduce.example.phase.inputformat.custom;
+package com.sciatta.hadoop.mapreduce.example.phase.inputformat.custominputformat;
 
 import org.apache.hadoop.fs.FSDataInputStream;
 import org.apache.hadoop.fs.Path;
@@ -17,7 +17,7 @@ import java.io.IOException;
 /**
  * Created by yangxiaoyu on 2020/1/26<br>
  * All Rights Reserved(C) 2017 - 2020 SCIATTA<br><p/>
- * CustomSequenceFileInputFormat
+ * CustomSequenceFileInputFormat 自定义InputFormat，一次性全部读取文件内容，key是文件名，value是文件内容
  */
 public class CustomSequenceFileInputFormat extends FileInputFormat<Text, BytesWritable> {
     private Text key;
@@ -47,10 +47,10 @@ public class CustomSequenceFileInputFormat extends FileInputFormat<Text, BytesWr
                     value.set(data, 0, data.length);
 
                     read = true; // 只读一次
-                    return true;
+                    return true;    // 读取成功
                 }
 
-                return false;
+                return false;      // 无值可读
             }
 
             @Override
@@ -77,7 +77,7 @@ public class CustomSequenceFileInputFormat extends FileInputFormat<Text, BytesWr
 
     @Override
     protected boolean isSplitable(JobContext context, Path filename) {
-        // 不可切分
+        // 文件不可切分，一次全部读取
         return false;
     }
 }

@@ -14,10 +14,10 @@ import java.io.IOException;
  */
 public abstract class AbstractJobRunner extends Configured implements Tool {
     // 客户端目录
-    protected static final String LOCAL_PARENT_PATH = "/Users/yangxiaoyu/work/test/";
+    protected static final String LOCAL_PARENT_PATH = "/Users/yangxiaoyu/work/test/mrdatas/";
 
     // 集群目录
-    protected static final String CLUSTER_PARENT_PATH = "/test/";
+    protected static final String CLUSTER_PARENT_PATH = "/test/mr/";
 
     public int run(String[] args) throws Exception {
         Job job = Job.getInstance(super.getConf(), getJobName());

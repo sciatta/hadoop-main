@@ -31,7 +31,7 @@ public class KeyValueInputFormatJobLocal extends AbstractJobRunner {
     @Override
     protected void configInputFormat(Job job) throws IOException {
         job.setInputFormatClass(KeyValueTextInputFormat.class);
-        // 以@作为分隔符
+        // 以@作为分隔符，即使传入的分隔符是字符串，也只能取第一个字符作为分隔符
         job.getConfiguration().set(KeyValueLineRecordReader.KEY_VALUE_SEPERATOR, "@zolen@");
         KeyValueTextInputFormat.addInputPath(job, new Path(getInputPath()));
     }

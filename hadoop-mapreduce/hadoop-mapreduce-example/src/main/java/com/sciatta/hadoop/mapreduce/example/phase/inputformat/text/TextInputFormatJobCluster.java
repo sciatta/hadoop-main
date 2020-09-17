@@ -32,7 +32,7 @@ public class TextInputFormatJobCluster extends TextInputFormatJobLocal {
         // reduce阶段压缩
         configuration.set("mapreduce.output.fileoutputformat.compress", "true");
         configuration.set("mapreduce.output.fileoutputformat.compress.type", "RECORD");
-        configuration.set("mapreduce.output.fileoutputformat.compress.codec", "org.apache.hadoop.io.compress.SnappyCodec");
+        configuration.set("mapreduce.output.fileoutputformat.compress.codec", "org.apache.hadoop.io.compress.SnappyCodec"); // snappy压缩
 
         // 当前用户和用户组是 hadoop hadoop
         // 不设置队列时，使用当前系统用户和用户组提交队列，提交至队列root.hadoop

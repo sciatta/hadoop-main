@@ -9,7 +9,7 @@ import org.apache.hadoop.mapreduce.Partitioner;
  */
 public class OrderPartitioner extends Partitioner<Order, Order> {
     public int getPartition(Order order, Order order2, int numPartitions) {
-        // 避免相同OrderId划分到不同的分区
+        // 避免相同OrderId（不同order对象的hashcode不同）划分到不同的分区
         return (order.getOrderId().hashCode() & Integer.MAX_VALUE) % numPartitions;
     }
 }

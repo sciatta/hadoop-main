@@ -1,4 +1,4 @@
-package com.sciatta.hadoop.mapreduce.example.phase.inputformat.custom;
+package com.sciatta.hadoop.mapreduce.example.phase.inputformat.custominputformat;
 
 import com.sciatta.hadoop.mapreduce.example.AbstractJobRunner;
 import org.apache.hadoop.fs.Path;
@@ -39,12 +39,15 @@ public class CustomSequenceFileJobLocal extends AbstractJobRunner {
 
     @Override
     protected void configMapTask(Job job) {
+        // 当没有设置MapperClass时，默认是Mapper类的实例，将输入的key，value，原样输出
         job.setMapOutputKeyClass(Text.class);
         job.setMapOutputValueClass(BytesWritable.class);
     }
 
     @Override
     protected void configReduceTask(Job job) {
+        // 默认一个reduceTask
+        // 当没有设置ReducerClass时，默认是Reducer类的实例，将输入的key，value，原样输出
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(BytesWritable.class);
     }

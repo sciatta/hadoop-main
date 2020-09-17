@@ -1,4 +1,4 @@
-package com.sciatta.hadoop.mapreduce.example.phase.inputformat.custom;
+package com.sciatta.hadoop.mapreduce.example.phase.inputformat.custominputformat;
 
 /**
  * Created by yangxiaoyu on 2020/1/26<br>
