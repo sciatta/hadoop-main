@@ -10,7 +10,7 @@ import java.io.IOException;
 /**
  * Created by yangxiaoyu on 2020/1/28<br>
  * All Rights Reserved(C) 2017 - 2020 SCIATTA<br><p/>
- * OrderReducer
+ * OrderReducer 求相同订单号，价格第二高的订单
  */
 public class OrderReducer extends Reducer<Order, Order, Text, NullWritable> {
     Text outKey = new Text();
@@ -28,7 +28,10 @@ public class OrderReducer extends Reducer<Order, Order, Text, NullWritable> {
             }
         }
 
-        outKey.set(top2.getOrderId() + "\t" + top2.getProductId() + "\t" + top2.getPrice());
-        context.write(outKey, NullWritable.get());
+        // 只输出价格第二高的订单。如果订单只有一笔记录，则不输出
+        if (p >= 2) {
+            outKey.set(top2.getOrderId() + "\t" + top2.getProductId() + "\t" + top2.getPrice());
+            context.write(outKey, NullWritable.get());
+        }
     }
 }
