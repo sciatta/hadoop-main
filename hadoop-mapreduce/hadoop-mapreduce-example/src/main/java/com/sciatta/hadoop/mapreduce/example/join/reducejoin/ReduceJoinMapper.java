@@ -28,6 +28,7 @@ public class ReduceJoinMapper extends Mapper<LongWritable, Text, Text, Text> {
         }
         outValue.set(line);
 
+        // key是productID为了进入一个分区，且相同productID的产品和订单仅调用一次Reducer
         context.write(productId, outValue);
     }
 }

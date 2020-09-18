@@ -28,6 +28,7 @@ public class MapJoinMapper extends Mapper<LongWritable, Text, Text, NullWritable
     protected void setup(Context context) throws IOException, InterruptedException {
         String line;
 
+        // task运行后，仅调用一次
         // 读入缓存文件
         URI[] files = context.getCacheFiles();
         FSDataInputStream inputStream = FileSystem.get(context.getConfiguration()).open(new Path(files[0]));
@@ -40,6 +41,7 @@ public class MapJoinMapper extends Mapper<LongWritable, Text, Text, NullWritable
 
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
+        // 仅解析订单文件
         String line = value.toString();
         String[] field = line.split(",");
         // 订单

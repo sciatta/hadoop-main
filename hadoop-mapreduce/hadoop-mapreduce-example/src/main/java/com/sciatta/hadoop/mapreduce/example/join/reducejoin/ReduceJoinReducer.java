@@ -21,6 +21,7 @@ public class ReduceJoinReducer extends Reducer<Text, Text, Text, NullWritable> {
         String secondPart = null;
         List<String> orders = new ArrayList<>();
 
+        // 遍历一次划分产品和订单
         for (Text v : values) {
             String line = v.toString();
             if (line.startsWith("P")) {

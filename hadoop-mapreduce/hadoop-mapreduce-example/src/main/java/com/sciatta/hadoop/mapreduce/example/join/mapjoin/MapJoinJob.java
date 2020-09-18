@@ -62,7 +62,7 @@ public class MapJoinJob extends AbstractJobRunner {
 
     @Override
     protected void configReduceTask(Job job) {
-        // 默认一个ReduceTask
+        // 这里设置为0，即不需要ReduceTask
         job.setNumReduceTasks(0);
     }
 
