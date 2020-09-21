@@ -66,7 +66,7 @@ public class APITests {
     }
 
     @Test
-    public void testDetData() throws KeeperException, InterruptedException {
+    public void testGetData() throws KeeperException, InterruptedException {
         // 连接node02
         byte[] data = zk.getData("/test", false, null);
         System.out.println(zk);
@@ -92,6 +92,7 @@ public class APITests {
 
     @Test
     public void testGetDataAddWatcher() throws KeeperException, InterruptedException {
+        // watcher只能被触发一次
         Stat exists = zk.exists("/test", new Watcher() {
             @Override
             public void process(WatchedEvent watchedEvent) {
@@ -103,7 +104,6 @@ public class APITests {
             System.out.println("not exists");
         } else {
             zk.setData("/test", "a".getBytes(), -1);
-            // 只能触发一次
             zk.setData("/test", "b".getBytes(), -1);
         }
     }

@@ -12,7 +12,7 @@ import java.util.concurrent.CountDownLatch;
 /**
  * Created by yangxiaoyu on 2020/3/7<br>
  * All Rights Reserved(C) 2017 - 2020 SCIATTA<br><p/>
- * DistributedLock
+ * DistributedLock，基于ZooKeeper的分布式锁实现，当无法获得锁时，监听上一个节点，可以有效防止惊群问题
  */
 public class DistributedLock implements Watcher {
     private static final int THREAD_NUM = 3;
@@ -68,6 +68,7 @@ public class DistributedLock implements Watcher {
         Collections.sort(children);
         printLog("当前节点=" + currentPath, "所有节点=" + children);
 
+        // 当前节点的所在位置
         int index = children.indexOf(currentPath.substring(PARENT_PATH.length() + 1));
         switch (index) {
             case -1: {
@@ -75,6 +76,7 @@ public class DistributedLock implements Watcher {
                 return false;
             }
             case 0: {
+                // 第一个
                 printLog("当前节点=" + currentPath, "获得锁");
                 return true;
             }
@@ -82,13 +84,15 @@ public class DistributedLock implements Watcher {
                 // 不是第一个节点，监控前一个临时节点状态
                 try {
                     waitPath = PARENT_PATH + "/" + children.get(index - 1);
-                    // 注册监听器
+                    // 当前线程监听上一个节点
+                    // 注册监听器，不指定watcher，使用默认监听器
                     zk.getData(waitPath, true, new Stat());
                     printLog("当前节点=" + currentPath, "未获得锁，等待节点=" + waitPath);
                     return false;
                 } catch (KeeperException e) {
                     if (zk.exists(waitPath, false) == null) {
-                        printLog("当前节点=" + currentPath, "等待节点=" + waitPath, "异常退出");
+                        // 监听上一个节点时，恰好上一个节点被删除，需要重新检测当前节点的顺序
+                        printLog("当前节点=" + currentPath, "，等待节点=" + waitPath, "不存在，可能已经被删除，重新检测当前节点");
                         return checkMinPath();
                     } else {
                         throw e;
@@ -119,8 +123,8 @@ public class DistributedLock implements Watcher {
 
     @Override
     public void process(WatchedEvent event) {
-        Event.KeeperState keeperState = event.getState();
-        Event.EventType eventType = event.getType();
+        Event.KeeperState keeperState = event.getState();   // 连接状态，需保证连接状态
+        Event.EventType eventType = event.getType();    // 节点处理类型
         String path = event.getPath();
 
         if (Event.KeeperState.SyncConnected == keeperState) {
@@ -128,8 +132,11 @@ public class DistributedLock implements Watcher {
                 printLog(String.valueOf(zk.getSessionId()), "异步连接成功通知");
                 waitConnected.countDown();
             } else if (eventType == Event.EventType.NodeDeleted && path.equals(waitPath)) {
-                printLog("当前节点=" + currentPath, "获得", "等待节点=" + waitPath, "通知");
+                printLog("当前节点=" + currentPath, " 获得 ", "等待节点=" + waitPath, " 通知");
                 try {
+                    // 需要重新检测
+                    // 1、上一个节点正常退出，当前节点变为第一个节点，会获得锁
+                    // 2、上一个节点异常退出，前边还有N个节点没有被处理，会向上一个节点重新注册监听
                     if (checkMinPath()) {
                         getLockSuccess();
                     }
@@ -166,11 +173,11 @@ public class DistributedLock implements Watcher {
                     try {
                         // 连接zookeeper集群
                         lock.createConnection(CONNECTION, SESSION_TIMEOUT);
-                        // 由一个线程创建父节点
+                        // 由一个线程创建持久化父节点
                         synchronized (ALL_THREAD) {
                             lock.createParentPath();
                         }
-                        // 获得锁
+                        // 获取锁
                         lock.getLock();
                     } catch (Exception e) {
                         lock.printLog(e.getMessage());
@@ -179,7 +186,7 @@ public class DistributedLock implements Watcher {
             }.start();
         }
         try {
-            // 阻塞当前线程，等待所有线程完成；此时，等待线程即使没有无线循环，也不会结束，可以接受到事件通知；
+            // 阻塞当前main线程，等待所有子线程完成；此时，等待线程即使没有无线循环，也不会结束，可以接受到事件通知；
             // 只要当 CountDownLatch 由其他所有线程递减为0后，才会继续向下执行
             ALL_THREAD.await();
             System.out.println("所有线程运行结束!");
