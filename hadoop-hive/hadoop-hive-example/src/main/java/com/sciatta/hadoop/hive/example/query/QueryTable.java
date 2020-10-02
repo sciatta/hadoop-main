@@ -5,7 +5,7 @@ import java.sql.*;
 /**
  * Created by yangxiaoyu on 2020/2/9<br>
  * All Rights Reserved(C) 2017 - 2020 SCIATTA<br><p/>
- * QueryTable
+ * QueryTable 通过hive jdbc api 查询数据
  */
 public class QueryTable {
     private static final String DB_URL = "jdbc:hive2://node03:10000/myhive";
@@ -13,6 +13,7 @@ public class QueryTable {
     public static void main(String[] args) throws ClassNotFoundException {
         Class.forName("org.apache.hive.jdbc.HiveDriver");
 
+        // 在idea中需要关联database，否则会提示找不到stu1
         String sql = "select * from stu1";
         Connection connection = null;
 
