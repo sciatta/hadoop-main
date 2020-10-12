@@ -1,11 +1,13 @@
 package com.sciatta.hadoop.java.algorithm.linear.array;
 
+import com.sciatta.hadoop.java.algorithm.linear.Linear;
+
 /**
  * Created by yangxiaoyu on 2020/10/9<br>
  * All Rights Reserved(C) 2017 - 2020 SCIATTA<br><p/>
  * 顺序表，逻辑有序（注意和元素值有序之间的区别）
  */
-public class SequenceList implements Sequence<Integer> {
+public class SequenceList implements Linear<Integer> {
     protected Integer[] datas;
     protected int length;
     protected int count;
@@ -83,5 +85,10 @@ public class SequenceList implements Sequence<Integer> {
         }
 
         return -1;
+    }
+
+    @Override
+    public Integer[] toArray() {
+        return datas;
     }
 }

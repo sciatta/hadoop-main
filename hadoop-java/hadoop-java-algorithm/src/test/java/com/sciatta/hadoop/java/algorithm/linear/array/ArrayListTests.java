@@ -2,6 +2,8 @@ package com.sciatta.hadoop.java.algorithm.linear.array;
 
 import org.junit.Test;
 
+import static org.junit.Assert.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
