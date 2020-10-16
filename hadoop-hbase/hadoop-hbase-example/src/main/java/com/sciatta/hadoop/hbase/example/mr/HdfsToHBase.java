@@ -24,7 +24,7 @@ import java.io.IOException;
  * Created by yangxiaoyu on 2020/2/20<br>
  * All Rights Reserved(C) 2017 - 2020 SCIATTA<br><p/>
  * HdfsToHBase
- * 将hdfs数据导入到HBase表
+ * 将hdfs数据导入到HBase表，需要访问HRegionServer
  */
 public class HdfsToHBase extends Configured implements Tool {
     private static final String ZK_QUORUM_KEY = "hbase.zookeeper.quorum";

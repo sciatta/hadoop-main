@@ -26,7 +26,7 @@ import static com.sciatta.hadoop.hbase.example.mr.bulkload.InitData.*;
 /**
  * Created by yangxiaoyu on 2020/2/21<br>
  * All Rights Reserved(C) 2017 - 2020 SCIATTA<br><p/>
- * HdfsToHBase
+ * HdfsToHBase 利用mr读取数据文件内容，输出为hfile格式的文件
  */
 public class HdfsToHBase extends Configured implements Tool {
 
@@ -64,6 +64,7 @@ public class HdfsToHBase extends Configured implements Tool {
 
         configHFileOutputFormat2(job);
         job.setOutputValueClass(HFileOutputFormat2.class);
+
         HFileOutputFormat2.setOutputPath(job, new Path(HDFS_HFILE_PATH));
 
         return job.waitForCompletion(true) ? 0 : 1;

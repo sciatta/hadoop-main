@@ -15,7 +15,7 @@ import static com.sciatta.hadoop.hbase.example.mr.bulkload.InitData.*;
 /**
  * Created by yangxiaoyu on 2020/2/21<br>
  * All Rights Reserved(C) 2017 - 2020 SCIATTA<br><p/>
- * LoadData
+ * LoadData 利用bulkload加载hfile文件到对应的表下
  */
 public class LoadData {
     public static void main(String[] args) throws Exception {

@@ -23,8 +23,8 @@ import java.io.IOException;
 /**
  * Created by yangxiaoyu on 2020/2/20<br>
  * All Rights Reserved(C) 2017 - 2020 SCIATTA<br><p/>
- * HBaseReadMapper
- * 将user表info列族下的name和age数据，插入到user1表的cf列族下
+ * HBaseToHBase
+ * 将user表info列族下的name和age数据，插入到user1表的cf列族下，需要访问HRegionServer
  */
 public class HBaseToHBase extends Configured implements Tool {
 
@@ -58,13 +58,15 @@ public class HBaseToHBase extends Configured implements Tool {
         protected void map(ImmutableBytesWritable key, Result value, Context context) throws IOException, InterruptedException {
             Cell[] cells = value.rawCells();
 
-            // 待转换一行数据
+            // 目标表一行数据
             Put put = new Put(key.get());
 
             for (Cell cell : cells) {
                 String cf = Bytes.toString(CellUtil.cloneFamily(cell));
+                // 匹配列族的cell
                 if (SOURCE_CF.equals(cf)) {
                     String cq = Bytes.toString(CellUtil.cloneQualifier(cell));
+                    // 匹配列的cell
                     if (SOURCE_C_NAME.equals(cq) || SOURCE_C_AGE.equals(cq)) {
                         put.addColumn(DEST_CF.getBytes(), cq.getBytes(), CellUtil.cloneValue(cell));
                     }
