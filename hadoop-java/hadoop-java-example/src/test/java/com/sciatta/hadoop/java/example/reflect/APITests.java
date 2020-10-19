@@ -2,6 +2,7 @@ package com.sciatta.hadoop.java.example.reflect;
 
 import org.junit.Test;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
@@ -74,5 +75,14 @@ public class APITests {
         for (Type t : dog.getClass().getGenericInterfaces()) {
             System.out.println(t.getTypeName());
         }
+    }
+
+    @Test
+    public void testAccessPrivateField() throws NoSuchFieldException, IllegalAccessException {
+        Field eggs = Dog.class.getDeclaredField("eggs");
+        // 设置可以访问私有属性
+        eggs.setAccessible(true);
+        Object o = eggs.get(new Dog<String, String>());
+        System.out.println(o.toString());
     }
 }

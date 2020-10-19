@@ -11,6 +11,8 @@ final class Dog<T, V> extends Animal<T, V> implements Serializable {
 
     private static final long serialVersionUID = -4750216764791636627L;
 
+    private String eggs = "my name is lucky!";
+
     public class InnerDogPublic {
     }
 
