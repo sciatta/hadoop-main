@@ -1,6 +1,6 @@
-package com.sciatta.hadoop.java.jvm.classload.initclass.impl;
+package com.sciatta.hadoop.java.jvm.classloader.initclass.impl;
 
-import com.sciatta.hadoop.java.jvm.classload.initclass.Dog;
+import com.sciatta.hadoop.java.jvm.classloader.initclass.Dog;
 
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;

@@ -1,6 +1,6 @@
-package com.sciatta.hadoop.java.jvm.classload.notinitclass.impl;
+package com.sciatta.hadoop.java.jvm.classloader.notinitclass.impl;
 
-import com.sciatta.hadoop.java.jvm.classload.notinitclass.Male;
+import com.sciatta.hadoop.java.jvm.classloader.notinitclass.Male;
 
 /**
  * Created by yangxiaoyu on 2020/10/19<br>

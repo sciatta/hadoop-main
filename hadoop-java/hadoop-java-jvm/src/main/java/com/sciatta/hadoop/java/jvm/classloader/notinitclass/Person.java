@@ -1,4 +1,4 @@
-package com.sciatta.hadoop.java.jvm.classload.notinitclass;
+package com.sciatta.hadoop.java.jvm.classloader.notinitclass;
 
 /**
  * Created by yangxiaoyu on 2020/10/19<br>

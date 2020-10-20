@@ -1,6 +1,6 @@
-package com.sciatta.hadoop.java.jvm.classload.initclass.impl;
+package com.sciatta.hadoop.java.jvm.classloader.initclass.impl;
 
-import com.sciatta.hadoop.java.jvm.classload.initclass.Monkey;
+import com.sciatta.hadoop.java.jvm.classloader.initclass.Monkey;
 
 /**
  * Created by yangxiaoyu on 2020/10/19<br>

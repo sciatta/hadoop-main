@@ -1,4 +1,4 @@
-package com.sciatta.hadoop.java.jvm.classload.initclass;
+package com.sciatta.hadoop.java.jvm.classloader.initclass;
 
 /**
  * Created by yangxiaoyu on 2020/10/19<br>

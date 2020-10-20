@@ -1,4 +1,4 @@
-package com.sciatta.hadoop.java.jvm.classload.notinitclass.impl;
+package com.sciatta.hadoop.java.jvm.classloader.notinitclass.impl;
 
 /**
  * Created by yangxiaoyu on 2020/10/19<br>
@@ -8,6 +8,6 @@ package com.sciatta.hadoop.java.jvm.classload.notinitclass.impl;
  */
 public class ClassForName {
     public static void main(String[] args) throws ClassNotFoundException {
-        Class.forName("com.sciatta.hadoop.java.jvm.classload.notinitclass.Male", false, ClassForName.class.getClassLoader());
+        Class.forName("com.sciatta.hadoop.java.jvm.classloader.notinitclass.Male", false, ClassForName.class.getClassLoader());
     }
 }
