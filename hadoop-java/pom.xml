@@ -15,6 +15,7 @@
         <module>hadoop-java-example</module>
         <module>hadoop-java-algorithm</module>
         <module>hadoop-java-jvm</module>
+        <module>hadoop-java-nio</module>
     </modules>
 
 </project>
