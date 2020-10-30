@@ -33,6 +33,8 @@ public abstract class HttpServer {
             PrintWriter printWriter = new PrintWriter(socket.getOutputStream(), true);
             printWriter.println("HTTP/1.1 200 OK");
             printWriter.println("Content-Type:text/html;charset=utf-8");
+            // 解决 ERR_CONNECTION_RESET 问题
+            printWriter.println("Content-length:" + message.getBytes().length);
             printWriter.println();
             printWriter.println(message);
             printWriter.close();
