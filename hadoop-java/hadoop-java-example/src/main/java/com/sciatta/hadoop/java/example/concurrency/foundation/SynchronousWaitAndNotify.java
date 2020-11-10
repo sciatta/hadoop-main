@@ -1,13 +1,13 @@
-package com.sciatta.hadoop.java.example.concurrency;
+package com.sciatta.hadoop.java.example.concurrency.foundation;
 
 import java.util.Random;
 
 /**
  * Created by yangxiaoyu on 2019-03-13<br>
  * All Rights Reserved(C) 2017 - 2019 SCIATTA<br><p/>
- * ProducerAndConsumer
+ * SynchronousWaitAndNotify
  */
-public class ProducerAndConsumer {
+public class SynchronousWaitAndNotify {
     private static final String DONE = "Done";
 
     private static void sleep(int millis) {
@@ -115,7 +115,7 @@ public class ProducerAndConsumer {
     public static void main(String[] args) {
         SynchronousMessage message = new SynchronousMessage();
 
-        ProducerAndConsumer.consumer(message, "Consumer").start();
-        ProducerAndConsumer.producer(message, "Producer").start();
+        SynchronousWaitAndNotify.consumer(message, "Consumer").start();
+        SynchronousWaitAndNotify.producer(message, "Producer").start();
     }
 }

@@ -1,11 +1,11 @@
-package com.sciatta.hadoop.java.example.concurrency.interrupt;
+package com.sciatta.hadoop.java.example.concurrency.foundation.interrupt;
 
 /**
  * Created by yangxiaoyu on 2020/6/3<br>
  * All Rights Reserved(C) 2017 - 2020 SCIATTA<br><p/>
- * IsInterrupted
+ * CleanInterruptedStateByException
  */
-public class IsInterrupted {
+public class CleanInterruptedStateByException {
     public static void main(String[] args) {
         System.out.println(Thread.currentThread() + " start");
 
@@ -16,11 +16,10 @@ public class IsInterrupted {
                 while (!isInterrupted()) {
                     try {
                         System.out.println(Thread.currentThread() + " is running");
-                        Thread.sleep(20);
+                        Thread.sleep(20);   // 当调用该线程的interrupt方法时，sleep wait join 会抛出InterruptedException
                     } catch (InterruptedException e) {
                         // 捕获异常，会清除当前线程的中断状态；因此，需要重新设置中断状态标志
                         this.interrupt();
-                        System.out.println(Thread.currentThread() + " catch interrupted, so stop");
                     }
                 }
             }
@@ -36,7 +35,5 @@ public class IsInterrupted {
 
         // 发起中断
         task.interrupt();
-
-        System.out.println(Thread.currentThread() + " stop");
     }
 }
