@@ -1,4 +1,4 @@
-package com.sciatta.hadoop.java.example.concurrency.reentrantlock;
+package com.sciatta.hadoop.java.concurrency.reentrantlock;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -66,7 +66,7 @@ public class ProtectedDataReaderWriter {
         }
     }
 
-    class Write implements Runnable {
+     class Write implements Runnable {
         private ProtectedData pd;
 
         private Write(ProtectedData pd) {

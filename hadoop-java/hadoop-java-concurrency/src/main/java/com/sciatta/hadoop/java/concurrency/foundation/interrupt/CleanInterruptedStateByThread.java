@@ -1,4 +1,4 @@
-package com.sciatta.hadoop.java.example.concurrency.foundation.interrupt;
+package com.sciatta.hadoop.java.concurrency.foundation.interrupt;
 
 /**
  * Created by yangxiaoyu on 2020/6/3<br>

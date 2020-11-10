@@ -1,4 +1,4 @@
-package com.sciatta.hadoop.java.example.concurrency.foundation;
+package com.sciatta.hadoop.java.concurrency.foundation;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;

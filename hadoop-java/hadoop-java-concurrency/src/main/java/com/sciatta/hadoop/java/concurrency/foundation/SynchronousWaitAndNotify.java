@@ -1,4 +1,4 @@
-package com.sciatta.hadoop.java.example.concurrency.foundation;
+package com.sciatta.hadoop.java.concurrency.foundation;
 
 import java.util.Random;
 
@@ -115,7 +115,7 @@ public class SynchronousWaitAndNotify {
     public static void main(String[] args) {
         SynchronousMessage message = new SynchronousMessage();
 
-        SynchronousWaitAndNotify.consumer(message, "Consumer").start();
-        SynchronousWaitAndNotify.producer(message, "Producer").start();
+        consumer(message, "Consumer").start();
+        producer(message, "Producer").start();
     }
 }

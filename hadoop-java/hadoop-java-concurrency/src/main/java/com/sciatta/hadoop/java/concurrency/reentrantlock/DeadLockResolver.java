@@ -1,4 +1,4 @@
-package com.sciatta.hadoop.java.example.concurrency.reentrantlock;
+package com.sciatta.hadoop.java.concurrency.reentrantlock;
 
 import java.util.Random;
 import java.util.concurrent.locks.Lock;
@@ -60,7 +60,7 @@ public class DeadLockResolver {
         private ChopStick second;
 
         Eat(ChopStick first, ChopStick second) {
-            this.first = first;
+            this.first=first;
             this.second = second;
         }
 

@@ -1,4 +1,4 @@
-package com.sciatta.hadoop.java.example.concurrency.foundation;
+package com.sciatta.hadoop.java.concurrency.foundation;
 
 /**
  * Created by yangxiaoyu on 2020/11/10<br>

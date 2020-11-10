@@ -1,4 +1,4 @@
-package com.sciatta.hadoop.java.example.concurrency.executor;
+package com.sciatta.hadoop.java.concurrency.executor;
 
 import java.util.concurrent.*;
 
