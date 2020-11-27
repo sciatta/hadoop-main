@@ -1,4 +1,4 @@
-package com.sciatta.hadoop.java.spring.core.aop.log;
+package com.sciatta.hadoop.java.spring.core.aop.aspectj.log;
 
 import com.sciatta.hadoop.java.spring.core.aop.common.PrintUtils;
 import com.sciatta.hadoop.java.spring.core.aop.common.User;

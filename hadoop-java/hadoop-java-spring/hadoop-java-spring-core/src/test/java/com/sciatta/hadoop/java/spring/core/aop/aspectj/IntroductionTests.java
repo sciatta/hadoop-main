@@ -1,9 +1,9 @@
-package com.sciatta.hadoop.java.spring.core.aop;
+package com.sciatta.hadoop.java.spring.core.aop.aspectj;
 
 import com.sciatta.hadoop.java.spring.core.aop.common.User;
 import com.sciatta.hadoop.java.spring.core.aop.common.UserService;
 import com.sciatta.hadoop.java.spring.core.aop.config.IntroductionConfig;
-import com.sciatta.hadoop.java.spring.core.aop.introduction.Print;
+import com.sciatta.hadoop.java.spring.core.aop.aspectj.introduction.Print;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

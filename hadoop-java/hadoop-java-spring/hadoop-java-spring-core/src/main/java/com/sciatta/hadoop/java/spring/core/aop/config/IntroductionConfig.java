@@ -11,7 +11,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
  */
 @Configuration
 @ComponentScan({"com.sciatta.hadoop.java.spring.core.aop.common",
-        "com.sciatta.hadoop.java.spring.core.aop.introduction"})
+        "com.sciatta.hadoop.java.spring.core.aop.aspectj.introduction"})
 @EnableAspectJAutoProxy
 public class IntroductionConfig {
 }

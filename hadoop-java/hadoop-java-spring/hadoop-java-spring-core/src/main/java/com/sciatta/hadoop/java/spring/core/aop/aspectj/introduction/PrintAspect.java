@@ -1,4 +1,4 @@
-package com.sciatta.hadoop.java.spring.core.aop.introduction;
+package com.sciatta.hadoop.java.spring.core.aop.aspectj.introduction;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;

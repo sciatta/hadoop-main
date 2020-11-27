@@ -1,4 +1,4 @@
-package com.sciatta.hadoop.java.spring.core.aop.introduction;
+package com.sciatta.hadoop.java.spring.core.aop.aspectj.introduction;
 
 /**
  * Created by yangxiaoyu on 2020/11/26<br>

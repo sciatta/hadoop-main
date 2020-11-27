@@ -11,8 +11,8 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
  */
 @Configuration
 @ComponentScan({"com.sciatta.hadoop.java.spring.core.aop.common",
-        "com.sciatta.hadoop.java.spring.core.aop.log",
-        "com.sciatta.hadoop.java.spring.core.aop.time"})
+        "com.sciatta.hadoop.java.spring.core.aop.aspectj.log",
+        "com.sciatta.hadoop.java.spring.core.aop.aspectj.time"})
 @EnableAspectJAutoProxy
 public class DifferentAspectDifferentAdvice {
 }

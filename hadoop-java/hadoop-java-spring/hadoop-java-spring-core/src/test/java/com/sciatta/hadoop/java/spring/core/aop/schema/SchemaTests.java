@@ -1,4 +1,4 @@
-package com.sciatta.hadoop.java.spring.core.aop;
+package com.sciatta.hadoop.java.spring.core.aop.schema;
 
 import com.sciatta.hadoop.java.spring.core.aop.common.UserService;
 import org.junit.Before;
