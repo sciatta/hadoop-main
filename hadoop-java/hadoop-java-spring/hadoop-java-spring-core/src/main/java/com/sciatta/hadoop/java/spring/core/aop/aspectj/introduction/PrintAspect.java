@@ -19,7 +19,7 @@ public class PrintAspect {
     private Print mixin;
     
     // pointcut表达式，this表示代理类是接口Print的实例，注入代理类
-    @Before(value = "com.sciatta.hadoop.java.spring.core.aop.common.CommonAspect.findUser(userName) && this(print)",
+    @Before(value = "com.sciatta.hadoop.java.spring.core.aop.aspectj.CommonAspect.findUser(userName) && this(print)",
             argNames = "userName,print")
     public void doPrint(String userName, Print print) {
         print.doPrint(userName);

@@ -1,4 +1,4 @@
-package com.sciatta.hadoop.java.spring.core.aop.config;
+package com.sciatta.hadoop.java.spring.core.aop.aspectj.config;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;

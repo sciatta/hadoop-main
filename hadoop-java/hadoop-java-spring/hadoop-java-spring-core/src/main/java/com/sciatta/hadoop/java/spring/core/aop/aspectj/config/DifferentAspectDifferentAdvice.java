@@ -1,17 +1,18 @@
-package com.sciatta.hadoop.java.spring.core.aop.config;
+package com.sciatta.hadoop.java.spring.core.aop.aspectj.config;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 /**
- * Created by yangxiaoyu on 2020/11/26<br>
+ * Created by yangxiaoyu on 2020/11/25<br>
  * All Rights Reserved(C) 2017 - 2020 SCIATTA<br><p/>
- * IntroductionConfig
+ * DifferentAspectDifferentAdvice
  */
 @Configuration
 @ComponentScan({"com.sciatta.hadoop.java.spring.core.aop.common",
-        "com.sciatta.hadoop.java.spring.core.aop.aspectj.introduction"})
+        "com.sciatta.hadoop.java.spring.core.aop.aspectj.log",
+        "com.sciatta.hadoop.java.spring.core.aop.aspectj.time"})
 @EnableAspectJAutoProxy
-public class IntroductionConfig {
+public class DifferentAspectDifferentAdvice {
 }

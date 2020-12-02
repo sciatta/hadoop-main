@@ -18,7 +18,7 @@ public class SchemaTests {
     
     @Before
     public void init() {
-        context = new ClassPathXmlApplicationContext("aop-example.xml");
+        context = new ClassPathXmlApplicationContext("aop-schema.xml");
     }
     
     @Test

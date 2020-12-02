@@ -1,4 +1,4 @@
-package com.sciatta.hadoop.java.spring.core.aop.common;
+package com.sciatta.hadoop.java.spring.core.aop.aspectj;
 
 import org.aspectj.lang.annotation.Pointcut;
 

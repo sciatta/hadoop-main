@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 @Order(1)
 // Order控制Aspect执行的顺序，越小越优先执行
 public class TimeAspect {
-    @Around(value = "com.sciatta.hadoop.java.spring.core.aop.common.CommonAspect.findUser(userName)", argNames = "pjp,userName")
+    @Around(value = "com.sciatta.hadoop.java.spring.core.aop.aspectj.CommonAspect.findUser(userName)", argNames = "pjp,userName")
     public Object doAround(ProceedingJoinPoint pjp, String userName) throws Throwable {
         PrintUtils.printUser("TimeAspect around advice in", PrintUtils.getCurrentTimeMillis(), userName, null);
         
@@ -28,23 +28,23 @@ public class TimeAspect {
         return user;
     }
     
-    @Before(value = "com.sciatta.hadoop.java.spring.core.aop.common.CommonAspect.findUser(userName)", argNames = "userName")
+    @Before(value = "com.sciatta.hadoop.java.spring.core.aop.aspectj.CommonAspect.findUser(userName)", argNames = "userName")
     public void doBefore(String userName) {
         PrintUtils.printUser("TimeAspect before advice", PrintUtils.getCurrentTimeMillis(), userName, null);
     }
     
-    @After(value = "com.sciatta.hadoop.java.spring.core.aop.common.CommonAspect.findUser(userName)", argNames = "userName")
+    @After(value = "com.sciatta.hadoop.java.spring.core.aop.aspectj.CommonAspect.findUser(userName)", argNames = "userName")
     public void doAfter(String userName) {
         PrintUtils.printUser("TimeAspect after advice", PrintUtils.getCurrentTimeMillis(), userName, null);
     }
     
-    @AfterReturning(pointcut = "com.sciatta.hadoop.java.spring.core.aop.common.CommonAspect.findUser(userName)",
+    @AfterReturning(pointcut = "com.sciatta.hadoop.java.spring.core.aop.aspectj.CommonAspect.findUser(userName)",
             returning = "retUser", argNames = "userName,retUser")
     public void doAfterReturning(String userName, User retUser) {
         PrintUtils.printUser("TimeAspect after returning advice", PrintUtils.getCurrentTimeMillis(), userName, retUser);
     }
     
-    @AfterThrowing(pointcut = "com.sciatta.hadoop.java.spring.core.aop.common.CommonAspect.findUser(userName)",
+    @AfterThrowing(pointcut = "com.sciatta.hadoop.java.spring.core.aop.aspectj.CommonAspect.findUser(userName)",
             throwing = "e", argNames = "userName,e")
     public void doAfterThrowing(String userName, RuntimeException e) {
         PrintUtils.printUser("TimeAspect after throwing advice", PrintUtils.getCurrentTimeMillis(), userName, e);
