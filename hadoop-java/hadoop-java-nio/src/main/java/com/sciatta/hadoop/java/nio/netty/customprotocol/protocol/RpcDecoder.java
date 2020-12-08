@@ -1,4 +1,4 @@
-package com.sciatta.hadoop.java.nio.netty.protocol;
+package com.sciatta.hadoop.java.nio.netty.customprotocol.protocol;
 
 import com.alibaba.fastjson.JSON;
 import io.netty.buffer.ByteBuf;

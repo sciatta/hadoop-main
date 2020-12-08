@@ -1,6 +1,6 @@
-package com.sciatta.hadoop.java.nio.netty.client;
+package com.sciatta.hadoop.java.nio.netty.customprotocol.client;
 
-import com.sciatta.hadoop.java.nio.netty.protocol.RpcResponse;
+import com.sciatta.hadoop.java.nio.netty.customprotocol.protocol.RpcResponse;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 

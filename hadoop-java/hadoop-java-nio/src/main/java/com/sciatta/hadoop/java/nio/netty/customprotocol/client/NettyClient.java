@@ -1,9 +1,9 @@
-package com.sciatta.hadoop.java.nio.netty.client;
+package com.sciatta.hadoop.java.nio.netty.customprotocol.client;
 
-import com.sciatta.hadoop.java.nio.netty.protocol.RpcDecoder;
-import com.sciatta.hadoop.java.nio.netty.protocol.RpcEncoder;
-import com.sciatta.hadoop.java.nio.netty.protocol.RpcRequest;
-import com.sciatta.hadoop.java.nio.netty.protocol.RpcResponse;
+import com.sciatta.hadoop.java.nio.netty.customprotocol.protocol.RpcDecoder;
+import com.sciatta.hadoop.java.nio.netty.customprotocol.protocol.RpcEncoder;
+import com.sciatta.hadoop.java.nio.netty.customprotocol.protocol.RpcRequest;
+import com.sciatta.hadoop.java.nio.netty.customprotocol.protocol.RpcResponse;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;

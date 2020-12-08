@@ -1,7 +1,7 @@
-package com.sciatta.hadoop.java.nio.netty;
+package com.sciatta.hadoop.java.nio.netty.customprotocol;
 
-import com.sciatta.hadoop.java.nio.netty.client.NettyClient;
-import com.sciatta.hadoop.java.nio.netty.protocol.RpcRequest;
+import com.sciatta.hadoop.java.nio.netty.customprotocol.client.NettyClient;
+import com.sciatta.hadoop.java.nio.netty.customprotocol.protocol.RpcRequest;
 import io.netty.channel.Channel;
 
 import java.util.UUID;

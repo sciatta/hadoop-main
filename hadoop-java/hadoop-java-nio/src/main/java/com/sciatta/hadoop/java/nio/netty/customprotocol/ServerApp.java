@@ -1,6 +1,6 @@
-package com.sciatta.hadoop.java.nio.netty;
+package com.sciatta.hadoop.java.nio.netty.customprotocol;
 
-import com.sciatta.hadoop.java.nio.netty.server.NettyServer;
+import com.sciatta.hadoop.java.nio.netty.customprotocol.server.NettyServer;
 
 /**
  * Created by yangxiaoyu on 2020/11/5<br>
