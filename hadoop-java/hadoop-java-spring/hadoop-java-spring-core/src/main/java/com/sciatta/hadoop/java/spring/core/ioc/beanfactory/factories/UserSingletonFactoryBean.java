@@ -1,6 +1,6 @@
 package com.sciatta.hadoop.java.spring.core.ioc.beanfactory.factories;
 
-import com.sciatta.hadoop.java.spring.core.ioc.model.User;
+import com.sciatta.hadoop.java.spring.core.model.User;
 import org.springframework.beans.factory.FactoryBean;
 
 /**

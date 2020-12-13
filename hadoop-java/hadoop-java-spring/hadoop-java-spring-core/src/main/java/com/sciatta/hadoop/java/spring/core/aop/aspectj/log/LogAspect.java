@@ -1,7 +1,7 @@
 package com.sciatta.hadoop.java.spring.core.aop.aspectj.log;
 
 import com.sciatta.hadoop.java.spring.core.aop.common.PrintUtils;
-import com.sciatta.hadoop.java.spring.core.aop.common.User;
+import com.sciatta.hadoop.java.spring.core.model.User;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.core.annotation.Order;

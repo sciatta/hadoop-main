@@ -6,7 +6,7 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <bean id="userService" class="com.sciatta.hadoop.java.spring.core.aop.common.UserServiceImpl"/>
+    <bean id="userService" class="com.sciatta.hadoop.java.spring.core.model.UserServiceImpl"/>
     <bean id="retryExecutor" class="com.sciatta.hadoop.java.spring.core.aop.schema.RetryExecutor">
         <property name="retryNumber" value="3"/>
     </bean>
@@ -14,7 +14,7 @@
     <aop:config>
         <aop:aspect ref="retryExecutor">
             <aop:pointcut id="retryPointcut"
-                          expression="execution(* com.sciatta.hadoop.java.spring.core.aop.common.UserService.findUser(String)) and args(userName)"/>
+                          expression="execution(* com.sciatta.hadoop.java.spring.core.model.UserService.findUser(String)) and args(userName)"/>
 
             <aop:around pointcut-ref="retryPointcut" method="retry"/>
         </aop:aspect>

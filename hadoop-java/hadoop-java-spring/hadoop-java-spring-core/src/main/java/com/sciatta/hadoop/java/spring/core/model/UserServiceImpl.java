@@ -1,5 +1,6 @@
-package com.sciatta.hadoop.java.spring.core.aop.common;
+package com.sciatta.hadoop.java.spring.core.model;
 
+import com.sciatta.hadoop.java.spring.core.aop.common.PrintUtils;
 import org.springframework.stereotype.Service;
 
 /**

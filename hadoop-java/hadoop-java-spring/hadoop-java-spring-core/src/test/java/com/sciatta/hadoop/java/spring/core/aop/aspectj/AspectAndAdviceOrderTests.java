@@ -1,7 +1,7 @@
 package com.sciatta.hadoop.java.spring.core.aop.aspectj;
 
-import com.sciatta.hadoop.java.spring.core.aop.common.User;
-import com.sciatta.hadoop.java.spring.core.aop.common.UserService;
+import com.sciatta.hadoop.java.spring.core.model.User;
+import com.sciatta.hadoop.java.spring.core.model.UserService;
 import com.sciatta.hadoop.java.spring.core.aop.aspectj.config.DifferentAspectDifferentAdvice;
 import com.sciatta.hadoop.java.spring.core.aop.aspectj.config.SameAspectDifferentAdvice;
 import org.junit.Test;

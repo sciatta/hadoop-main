@@ -1,6 +1,6 @@
 package com.sciatta.hadoop.java.spring.core.ioc.beanfactory.lifecycle;
 
-import com.sciatta.hadoop.java.spring.core.ioc.model.User;
+import com.sciatta.hadoop.java.spring.core.model.User;
 
 /**
  * Created by yangxiaoyu on 2018/11/10<br>

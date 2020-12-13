@@ -1,6 +1,6 @@
 package com.sciatta.hadoop.java.spring.core.aop.schema;
 
-import com.sciatta.hadoop.java.spring.core.aop.common.UserService;
+import com.sciatta.hadoop.java.spring.core.model.UserService;
 import org.junit.Before;
 import org.junit.Test;
 

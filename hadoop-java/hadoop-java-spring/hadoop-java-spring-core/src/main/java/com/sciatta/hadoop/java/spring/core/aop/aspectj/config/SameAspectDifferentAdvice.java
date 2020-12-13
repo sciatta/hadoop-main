@@ -10,7 +10,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
  * SameAspectDifferentAdvice
  */
 @Configuration
-@ComponentScan({"com.sciatta.hadoop.java.spring.core.aop.common",
+@ComponentScan({"com.sciatta.hadoop.java.spring.core.model",
         "com.sciatta.hadoop.java.spring.core.aop.aspectj.time"})
 @EnableAspectJAutoProxy
 public class SameAspectDifferentAdvice {

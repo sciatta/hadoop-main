@@ -3,11 +3,11 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="owner" name="owner" class="com.sciatta.hadoop.java.spring.core.ioc.model.User" init-method="init">
+    <bean id="owner" name="owner" class="com.sciatta.hadoop.java.spring.core.model.User" init-method="init">
         <property name="name" value="rain"/>
     </bean>
 
-    <bean id="dog" name="dog" class="com.sciatta.hadoop.java.spring.core.ioc.model.User" depends-on="owner"
+    <bean id="dog" name="dog" class="com.sciatta.hadoop.java.spring.core.model.User" depends-on="owner"
           init-method="init">
         <property name="name" value="lucky"/>
     </bean>

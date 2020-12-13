@@ -1,6 +1,5 @@
 package com.sciatta.hadoop.java.spring.core.aop.api;
 
-import com.sciatta.hadoop.java.spring.core.aop.common.PrintUtils;
 import org.springframework.aop.MethodBeforeAdvice;
 
 import java.lang.reflect.Method;

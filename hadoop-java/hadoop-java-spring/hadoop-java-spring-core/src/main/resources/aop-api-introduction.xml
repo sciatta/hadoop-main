@@ -3,7 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="user" class="com.sciatta.hadoop.java.spring.core.aop.common.User"/>
+    <bean id="user" class="com.sciatta.hadoop.java.spring.core.model.User"/>
 
     <bean id="userWithLockIntroduction"
           class="com.sciatta.hadoop.java.spring.core.aop.api.introduction.UserWithLockIntroduction"/>
@@ -14,7 +14,7 @@
     </bean>
 
     <bean id="userWithLock" class="org.springframework.aop.framework.ProxyFactoryBean">
-        <property name="proxyInterfaces" value="com.sciatta.hadoop.java.spring.core.aop.common.Name"/>
+        <property name="proxyInterfaces" value="com.sciatta.hadoop.java.spring.core.model.Name"/>
         <property name="target" ref="user"/>
         <property name="interceptorNames">
             <list>
@@ -24,7 +24,7 @@
     </bean>
 
     <bean id="userWithLock1" class="org.springframework.aop.framework.ProxyFactoryBean">
-        <property name="proxyInterfaces" value="com.sciatta.hadoop.java.spring.core.aop.common.Name"/>
+        <property name="proxyInterfaces" value="com.sciatta.hadoop.java.spring.core.model.Name"/>
         <property name="target" ref="user"/>
         <property name="interceptorNames">
             <list>

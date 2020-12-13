@@ -1,8 +1,7 @@
 package com.sciatta.hadoop.java.spring.core.ioc.beanfactory.factories;
 
-import com.sciatta.hadoop.java.spring.core.ioc.applicationcontext.factory.ClientService;
 import com.sciatta.hadoop.java.spring.core.ioc.beanfactory.AbstractBeanFactoryTests;
-import com.sciatta.hadoop.java.spring.core.ioc.model.User;
+import com.sciatta.hadoop.java.spring.core.model.User;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.ObjectFactory;

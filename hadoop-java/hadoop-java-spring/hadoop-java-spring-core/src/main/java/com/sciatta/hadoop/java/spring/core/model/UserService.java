@@ -1,4 +1,4 @@
-package com.sciatta.hadoop.java.spring.core.aop.common;
+package com.sciatta.hadoop.java.spring.core.model;
 
 /**
  * Created by yangxiaoyu on 2020/11/25<br>

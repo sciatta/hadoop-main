@@ -9,7 +9,7 @@ import org.aspectj.lang.annotation.Pointcut;
  */
 public class CommonAspect {
     // args 运行时参数匹配
-    @Pointcut("execution(* com.sciatta.hadoop.java.spring.core.aop.common.UserService.findUser(String)) && args(userName)") // pointcut表达式
+    @Pointcut("execution(* com.sciatta.hadoop.java.spring.core.model.UserService.findUser(String)) && args(userName)") // pointcut表达式
     public void findUser(String userName) { // pointcut签名
         // pointcut签名 -> pointcut表达式
     }

@@ -1,6 +1,6 @@
 package com.sciatta.hadoop.java.spring.core.ioc.applicationcontext.scan.service;
 
-import com.sciatta.hadoop.java.spring.core.ioc.model.User;
+import com.sciatta.hadoop.java.spring.core.model.User;
 import org.junit.Before;
 import org.junit.Test;
 

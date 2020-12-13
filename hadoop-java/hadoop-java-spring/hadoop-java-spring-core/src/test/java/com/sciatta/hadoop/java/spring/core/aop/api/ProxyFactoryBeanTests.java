@@ -1,14 +1,14 @@
 package com.sciatta.hadoop.java.spring.core.aop.api;
 
-import com.sciatta.hadoop.java.spring.core.aop.common.User;
-import com.sciatta.hadoop.java.spring.core.aop.common.UserService;
+import com.sciatta.hadoop.java.spring.core.model.User;
+import com.sciatta.hadoop.java.spring.core.model.UserService;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import static org.junit.Assert.*;
 
 /**
  * Created by yangxiaoyu on 2020/11/29<br>

@@ -1,7 +1,7 @@
 package com.sciatta.hadoop.java.spring.core.aop.api;
 
 import com.sciatta.hadoop.java.spring.core.aop.api.introduction.Lockable;
-import com.sciatta.hadoop.java.spring.core.aop.common.Name;
+import com.sciatta.hadoop.java.spring.core.model.Name;
 import org.junit.Before;
 import org.junit.Test;
 

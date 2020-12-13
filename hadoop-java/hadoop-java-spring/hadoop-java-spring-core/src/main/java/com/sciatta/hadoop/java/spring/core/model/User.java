@@ -1,11 +1,11 @@
-package com.sciatta.hadoop.java.spring.core.ioc.model;
+package com.sciatta.hadoop.java.spring.core.model;
 
 /**
  * Created by yangxiaoyu on 2018/9/11<br>
  * All Rights Reserved(C) 2017 - 2018 SCIATTA<br><p/>
  * User
  */
-public class User {
+public class User implements Name {
     private long id;
     private String name;
     private int age;

@@ -1,6 +1,5 @@
 package com.sciatta.hadoop.java.spring.core.aop.api;
 
-
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
 

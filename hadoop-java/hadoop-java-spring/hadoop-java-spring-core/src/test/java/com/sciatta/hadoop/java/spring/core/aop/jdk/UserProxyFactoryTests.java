@@ -1,7 +1,7 @@
 package com.sciatta.hadoop.java.spring.core.aop.jdk;
 
-import com.sciatta.hadoop.java.spring.core.aop.common.Name;
-import com.sciatta.hadoop.java.spring.core.aop.common.User;
+import com.sciatta.hadoop.java.spring.core.model.Name;
+import com.sciatta.hadoop.java.spring.core.model.User;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
