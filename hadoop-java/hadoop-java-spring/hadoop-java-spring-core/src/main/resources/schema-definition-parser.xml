@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:schoolns="http://www.sciatta.com/schema/definitionparser"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.sciatta.com/schema/definitionparser http://www.sciatta.com/scheam/definitionparser/scool.xsd">
+
+    <schoolns:school name="magicSchool" id="mySchool">
+        <schoolns:klass name="maths">
+            <schoolns:student>
+                <schoolns:name>rain</schoolns:name>
+                <schoolns:age>18</schoolns:age>
+            </schoolns:student>
+            <schoolns:student>
+                <schoolns:name>yoyo</schoolns:name>
+                <schoolns:age>17</schoolns:age>
+            </schoolns:student>
+        </schoolns:klass>
+        <schoolns:klass name="english">
+            <schoolns:student>
+                <schoolns:name>lucky</schoolns:name>
+                <schoolns:age>3</schoolns:age>
+            </schoolns:student>
+        </schoolns:klass>
+    </schoolns:school>
+
+</beans>
