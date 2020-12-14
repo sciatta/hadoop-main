@@ -19,9 +19,9 @@ import org.springframework.core.io.ClassPathResource;
 /**
  * Created by yangxiaoyu on 2018/9/19<br>
  * All Rights Reserved(C) 2017 - 2018 SCIATTA<br><p/>
- * PhoneSelectorTest
+ * PhoneSelectorTests
  */
-public class PhoneSelectorTest {
+public class PhoneSelectorTests {
     // ApplicationContext applicationContext;
     BeanFactory factory;
     PhoneSelector phoneSelector;

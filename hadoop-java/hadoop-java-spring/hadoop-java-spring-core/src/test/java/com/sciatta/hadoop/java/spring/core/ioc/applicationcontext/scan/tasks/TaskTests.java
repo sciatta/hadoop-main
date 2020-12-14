@@ -10,9 +10,9 @@ import org.junit.Test;
 /**
  * Created by yangxiaoyu on 2018/9/20<br>
  * All Rights Reserved(C) 2017 - 2018 SCIATTA<br><p/>
- * TaskTest
+ * TaskTests
  */
-public class TaskTest extends AbstractBean {
+public class TaskTests extends AbstractBean {
     @Before
     public void init() {
         initBeans(TaskConfig.class);

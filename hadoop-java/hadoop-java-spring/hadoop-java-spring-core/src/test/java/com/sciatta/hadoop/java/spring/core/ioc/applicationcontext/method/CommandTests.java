@@ -11,9 +11,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 /**
  * Created by yangxiaoyu on 2018/9/14<br>
  * All Rights Reserved(C) 2017 - 2018 SCIATTA<br><p/>
- * CommandTest
+ * CommandTests
  */
-public class CommandTest {
+public class CommandTests {
     ApplicationContext applicationContext;
 
     @Before

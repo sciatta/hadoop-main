@@ -12,9 +12,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 /**
  * Created by yangxiaoyu on 2018/9/12<br>
  * All Rights Reserved(C) 2017 - 2018 SCIATTA<br><p/>
- * UserServiceTest
+ * UserServiceTests
  */
-public class UserServiceTest {
+public class UserServiceTests {
     private ApplicationContext applicationContext;
 
     @Before

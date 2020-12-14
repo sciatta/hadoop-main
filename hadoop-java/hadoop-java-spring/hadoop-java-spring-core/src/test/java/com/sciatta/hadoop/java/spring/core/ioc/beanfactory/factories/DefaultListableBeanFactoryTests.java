@@ -12,9 +12,9 @@ import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 /**
  * Created by yangxiaoyu on 2018/10/5<br>
  * All Rights Reserved(C) 2017 - 2018 SCIATTA<br><p/>
- * DefaultListableBeanFactoryTest
+ * DefaultListableBeanFactoryTests
  */
-public class DefaultListableBeanFactoryTest extends AbstractBeanFactoryTests {
+public class DefaultListableBeanFactoryTests extends AbstractBeanFactoryTests {
     @Test
     public void testGetBeanAndAlias() {
         DefaultListableBeanFactory factory = getBeanFactory("bean-factory-alias.xml");

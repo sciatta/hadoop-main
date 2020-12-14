@@ -12,9 +12,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 /**
  * Created by yangxiaoyu on 2018/9/17<br>
  * All Rights Reserved(C) 2017 - 2018 SCIATTA<br><p/>
- * AnimalProcessorTest
+ * AnimalProcessorTests
  */
-public class AnimalProcessorTest {
+public class AnimalProcessorTests {
     ConfigurableApplicationContext applicationContext;
     
     @Before

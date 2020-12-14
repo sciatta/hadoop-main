@@ -12,9 +12,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 /**
  * Created by yangxiaoyu on 2018/9/16<br>
  * All Rights Reserved(C) 2017 - 2018 SCIATTA<br><p/>
- * XmlBasedLifecycleTest
+ * XmlBasedLifecycleTests
  */
-public class XmlBasedLifecycleTest {
+public class XmlBasedLifecycleTests {
     ConfigurableApplicationContext applicationContext;
 
     @Before

@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class PrintAspect {
     // 增强类功能，即原类拥有接口定义的功能
-    @DeclareParents(value = "com.sciatta.hadoop.java.spring.core.aop.common.*Service+",
+    @DeclareParents(value = "com.sciatta.hadoop.java.spring.core.model.*Service+",
             defaultImpl = PrintImpl.class)
     private Print mixin;
     

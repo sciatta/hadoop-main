@@ -9,9 +9,9 @@ import static org.junit.Assert.*;
 /**
  * Created by yangxiaoyu on 2018/9/20<br>
  * All Rights Reserved(C) 2017 - 2018 SCIATTA<br><p/>
- * TaskComponentTest
+ * TaskComponentTests
  */
-public class TaskComponentTest extends AbstractBean {
+public class TaskComponentTests extends AbstractBean {
 
     @Before
     public void init() {

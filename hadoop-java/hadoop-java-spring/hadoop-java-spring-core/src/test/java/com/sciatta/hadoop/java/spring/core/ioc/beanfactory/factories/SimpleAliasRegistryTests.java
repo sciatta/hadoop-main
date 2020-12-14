@@ -9,9 +9,9 @@ import org.springframework.core.SimpleAliasRegistry;
 /**
  * Created by yangxiaoyu on 2018/10/4<br>
  * All Rights Reserved(C) 2017 - 2018 SCIATTA<br><p/>
- * SimpleAliasRegistryTest
+ * SimpleAliasRegistryTests
  */
-public class SimpleAliasRegistryTest {
+public class SimpleAliasRegistryTests {
 
     @Test
     public void testAlias() {
