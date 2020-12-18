@@ -57,7 +57,6 @@
         <kafka.version>1.0.1</kafka.version>
         <spark.version>2.3.3</spark.version>
         <flume.version>1.6.0-cdh5.14.2</flume.version>
-        <junit.version>4.11</junit.version>
         <mysql.version>5.1.38</mysql.version>
         <slf4j.version>1.7.25</slf4j.version>
         <log4j.version>1.2.17</log4j.version>
@@ -213,13 +212,6 @@
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpasyncclient</artifactId>
                 <version>${httpasyncclient.version}</version>
-            </dependency>
-            <!-- junit -->
-            <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>${junit.version}</version>
-                <scope>test</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>

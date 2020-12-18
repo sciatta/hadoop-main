@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.sciatta.hadoop.java.spring.boot.schoolstarter.config.SchoolAutoConfig

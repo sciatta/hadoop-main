@@ -14,6 +14,6 @@
     <modules>
         <module>hadoop-java-spring-core</module>
         <module>hadoop-java-spring-boot</module>
-        <module>hadoop-java-spring-boot-starter</module>
+        <module>hadoop-java-spring-boot-schoolstarter</module>
     </modules>
 </project>
