@@ -47,7 +47,10 @@ public class APITests {
     public void testPrintPersonWithAggregateAndMethod() {
         queryPerson.printPersonWithAggregateAndMethod(maker(), person -> person.getGender() == Person.Sex.MALE, person -> System.out.println(person.getName()));
     }
+    
+    // @@方法引用示例@@
 
+    // 类的静态方法引用
     @Test
     public void testStaticMethodReference() {
         // 匿名类
@@ -66,29 +69,34 @@ public class APITests {
 
         System.out.println();
 
-        // 静态方法引用
-        // static int desc(Person a, Person b)  两个person参数，返回int，和Comparator的compare方法一致
+        // @@静态方法引用，参数一致
+        // static int desc(Person a, Person b)
         queryPerson.sortAndPrint(maker(), Person::desc);
     }
 
+    // 对象的实例方法引用
     @Test
     public void testInstanceMethodReference() {
-        // 成员方法引用
+        // @@对象的成员方法引用，参数一致
         Person person = new Person();
+        
+        // int compare(T o1, T o2)
         // int asc(Person a, Person b)
         queryPerson.sortAndPrint(maker(), person::asc);
     }
 
+    // 类的实例方法引用
     @Test
     public void testAnyClassInstanceMethodReference() {
-        // 类的任意实例的实例方法引用
-        // 需要两个参数 int compare(T o1, T o2)
-        // 传入的参数是 int person.compareTo(Person o) 前导Person对应省略的是要求函数的第一个参数o1，即 o1.compareTo(o2)
+        // @@类的任意实例的实例方法引用，可以把实际函数的第一个参数提前的类的函数传入
+        // @@实际@@ int compare(T o1, T o2) -> int o1.compare(o2) -> @@lambda@@ O.compare(o2)
         queryPerson.sortAndPrint(maker(), Person::compareTo);
     }
 
+    // 构造函数引用
     @Test
     public void testConstructorMethodReference() {
+        // @@选择有参数，还是无参数的构造函数，取决于被调用方法的lambda表达式，用的是推断的方法
         // 构造器引用（无参）
         Person person = maker(Person::new);
         assertNotNull(person);
