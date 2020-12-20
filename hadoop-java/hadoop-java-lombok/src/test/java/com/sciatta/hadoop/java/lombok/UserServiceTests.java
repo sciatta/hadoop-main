@@ -2,8 +2,10 @@ package com.sciatta.hadoop.java.lombok;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.RETURNS_DEEP_STUBS;
 
 /**
  * Created by yangxiaoyu on 2020/12/19<br>
@@ -21,5 +23,13 @@ public class UserServiceTests {
         log.debug("return user: " + user);
         
         assertEquals(name, user.getName());
+    }
+    
+    @Test
+    public void testMockito() {
+        UserService mock = Mockito.mock(UserService.class, RETURNS_DEEP_STUBS);
+        Mockito.when(mock.findUser("").getName()).thenReturn("mock");
+        
+        assertEquals("mock", mock.findUser("").getName());
     }
 }
