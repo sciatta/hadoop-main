@@ -19,6 +19,7 @@
         <module>hadoop-java-concurrency</module>
         <module>hadoop-java-spring</module>
         <module>hadoop-java-lombok</module>
+        <module>hadoop-java-guava</module>
     </modules>
 
 </project>
