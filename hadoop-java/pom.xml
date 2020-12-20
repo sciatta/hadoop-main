@@ -18,6 +18,7 @@
         <module>hadoop-java-nio</module>
         <module>hadoop-java-concurrency</module>
         <module>hadoop-java-spring</module>
+        <module>hadoop-java-lombok</module>
     </modules>
 
 </project>
