@@ -52,7 +52,7 @@
         <hadoop.version>2.6.0-cdh5.14.2</hadoop.version>
         <zookeeper.version>3.4.13</zookeeper.version>
         <curator.version>4.2.0</curator.version>
-        <hive.version>1.1.0-cdh5.14.2</hive.version>
+        <hive.version>3.1.3000.7.1.1.0-565</hive.version>
         <hbase.version>1.2.0-cdh5.14.2</hbase.version>
         <kafka.version>1.0.1</kafka.version>
         <spark.version>2.3.3</spark.version>
