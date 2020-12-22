@@ -50,7 +50,7 @@
         <project.build.sourceEncoding>${java.encoding}</project.build.sourceEncoding>
 
         <hadoop.version>2.6.0-cdh5.14.2</hadoop.version>
-        <zookeeper.version>3.4.13</zookeeper.version>
+        <zookeeper.version>3.4.14</zookeeper.version>
         <curator.version>4.2.0</curator.version>
         <hive.version>3.1.3000.7.1.1.0-565</hive.version>
         <hbase.version>1.2.0-cdh5.14.2</hbase.version>
