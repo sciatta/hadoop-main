@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="com.sciatta.dev.java.spring.core.ioc.applicationcontext.processor.AnimalBeanFactoryPostProcessor"/>
+    <bean class="com.sciatta.dev.java.spring.core.ioc.applicationcontext.processor.AnimalBeanPostProcessor"/>
+
+    <bean id="animal" class="com.sciatta.dev.java.spring.core.ioc.applicationcontext.processor.Animal">
+        <property name="name" value="dog"/>
+    </bean>
+</beans>

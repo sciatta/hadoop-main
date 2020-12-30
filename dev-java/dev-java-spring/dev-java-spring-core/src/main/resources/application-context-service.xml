@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- application context -->
+    <bean id="userDao" class="com.sciatta.dev.java.spring.core.ioc.applicationcontext.scan.service.UserDao"/>
+
+    <bean id="userService" name="userService1,userService2"
+          class="com.sciatta.dev.java.spring.core.ioc.applicationcontext.scan.service.UserServiceImpl">
+        <property name="userDao" ref="userDao"/>
+    </bean>
+
+</beans>

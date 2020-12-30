@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="userServiceTarget" class="com.sciatta.dev.java.spring.core.model.UserServiceImpl"/>
+
+    <bean id="around" class="com.sciatta.dev.java.spring.core.aop.api.Around"/>
+    <bean id="before" class="com.sciatta.dev.java.spring.core.aop.api.Before"/>
+    <bean id="afterReturning" class="com.sciatta.dev.java.spring.core.aop.api.AfterReturning"/>
+    <bean id="afterThrowing" class="com.sciatta.dev.java.spring.core.aop.api.AfterThrowing"/>
+
+    <bean id="userService" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="com.sciatta.dev.java.spring.core.model.UserService"/>
+        <property name="target" ref="userServiceTarget"/>
+        <property name="interceptorNames">
+            <list>
+                <value>around</value>
+                <value>before</value>
+                <value>afterReturning</value>
+                <value>afterThrowing</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="userService1" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces" value="com.sciatta.dev.java.spring.core.model.UserService"/>
+        <property name="target" ref="userServiceTarget"/>
+        <property name="interceptorNames">
+            <list>
+                <value>around</value>
+                <value>before</value>
+                <value>afterReturning</value>
+                <value>afterThrowing</value>
+            </list>
+        </property>
+    </bean>
+</beans>

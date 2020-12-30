@@ -11,20 +11,12 @@
         <relativePath/>
     </parent>
 
-    <groupId>com.sciatta.hadoop</groupId>
-    <artifactId>hadoop-dev</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <groupId>com.sciatta.dev</groupId>
+    <artifactId>dev</artifactId>
+    <version>${revision}</version>
     <modules>
-        <module>hadoop-hdfs</module>
-        <module>hadoop-mapreduce</module>
-        <module>hadoop-zookeeper</module>
-        <module>hadoop-hive</module>
-        <module>hadoop-hbase</module>
-        <module>hadoop-scala</module>
-        <module>hadoop-spark</module>
-        <module>hadoop-kafka</module>
-        <module>hadoop-flume</module>
-        <module>hadoop-java</module>
+        <module>dev-bigdata</module>
+        <module>dev-java</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -43,6 +35,8 @@
     </repositories>
 
     <properties>
+        <revision>1.0-SNAPSHOT</revision>
+
         <java.version>1.8</java.version>
         <java.encoding>UTF-8</java.encoding>
         <maven.compiler.source>1.8</maven.compiler.source>

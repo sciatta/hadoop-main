@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="user" class="com.sciatta.dev.java.spring.core.model.User">
+        <property name="name" value="rain"/>
+    </bean>
+
+    <!-- 通过set装配 -->
+    <bean id="withXmlBeanSet" class="com.sciatta.dev.java.spring.core.ioc.example.assemble.WithXmlBeanSet">
+        <property name="user" ref="user"/>
+    </bean>
+
+    <!-- 通过构造函数装配 -->
+    <bean id="withXmlBeanCons" class="com.sciatta.dev.java.spring.core.ioc.example.assemble.WithXmlBeanCons">
+        <constructor-arg index="0" ref="user"/>
+    </bean>
+
+    <!-- 通过工厂方法装配 -->
+    <bean id="factoryMethod"
+          class="com.sciatta.dev.java.spring.core.ioc.example.assemble.WithXmlFactoryMethod$FactoryMethod"
+          factory-method="newUser">
+    </bean>
+    <bean id="withXmlFactoryMethod"
+          class="com.sciatta.dev.java.spring.core.ioc.example.assemble.WithXmlFactoryMethod">
+        <property name="user" ref="factoryMethod"/>
+    </bean>
+
+    <!-- 通过实例工厂装配 -->
+    <bean id="instanceFactory"
+          class="com.sciatta.dev.java.spring.core.ioc.example.assemble.WithXmlInstanceFactory.InstanceFactory"/>
+    <bean id="userInstanceFactory" factory-bean="instanceFactory" factory-method="newUser"/>
+    <bean id="withXmlInstanceFactory"
+          class="com.sciatta.dev.java.spring.core.ioc.example.assemble.WithXmlInstanceFactory">
+        <property name="user" ref="userInstanceFactory"/>
+    </bean>
+
+    <!-- 通过FactoryBean装配 -->
+    <bean id="userWithFactoryBean"
+          class="com.sciatta.dev.java.spring.core.ioc.example.assemble.WithXmlFactoryBean.MyFactoryBean"/>
+    <bean id="withXmlFactoryBean" class="com.sciatta.dev.java.spring.core.ioc.example.assemble.WithXmlFactoryBean">
+        <property name="user" ref="userWithFactoryBean"/>
+    </bean>
+
+    <!-- 通过方法注入装配 -->
+    <bean id="lookupFactory"
+          class="com.sciatta.dev.java.spring.core.ioc.example.assemble.WithXmlLookupMethod.LookupFactory">
+        <lookup-method name="newUser" bean="user"/>
+    </bean>
+    <bean id="userLookupFactory" factory-bean="lookupFactory" factory-method="newUser"/>
+    <bean id="withXmlLookupMethod" class="com.sciatta.dev.java.spring.core.ioc.example.assemble.WithXmlLookupMethod">
+        <property name="user" ref="userLookupFactory"/>
+    </bean>
+
+    <!-- 通过容器装配 -->
+    <bean id="withXmlApplicationContextAware"
+          class="com.sciatta.dev.java.spring.core.ioc.example.assemble.WithXmlApplicationContextAware"/>
+
+</beans>
