@@ -3,24 +3,21 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>dev</artifactId>
+        <artifactId>dev-java</artifactId>
         <groupId>com.sciatta.dev</groupId>
         <version>${revision}</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>dev-java</artifactId>
+    <artifactId>dev-java-database</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>dev-java-example</module>
-        <module>dev-java-algorithm</module>
-        <module>dev-java-jvm</module>
-        <module>dev-java-nio</module>
-        <module>dev-java-concurrency</module>
-        <module>dev-java-spring</module>
-        <module>dev-java-lombok</module>
-        <module>dev-java-guava</module>
-        <module>dev-java-database</module>
+        <module>dev-java-database-mysql</module>
     </modules>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
 
 </project>
