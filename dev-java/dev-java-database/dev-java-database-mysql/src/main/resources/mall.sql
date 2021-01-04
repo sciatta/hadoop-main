@@ -13,9 +13,6 @@ CREATE TABLE IF NOT EXISTS mall.users
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
 
-insert into mall.users(name, nickname, password, id_number) VALUES ('yxy','rain','123456','1234567890');
-insert into mall.users(name, nickname, password, id_number) VALUES ('yl','yoyo','67890','0987654321');
-
 DROP TABLE IF EXISTS mall.products;
 CREATE TABLE IF NOT EXISTS mall.products
 (
@@ -26,16 +23,13 @@ CREATE TABLE IF NOT EXISTS mall.products
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
 
-insert into mall.products(name, price) VALUES ('phone','5000');
-insert into mall.products(name, price) VALUES ('watch','2000');
-
 DROP TABLE IF EXISTS mall.orders;
 CREATE TABLE IF NOT EXISTS mall.orders
 (
     order_id     INT UNSIGNED   NOT NULL AUTO_INCREMENT,
     user_id      INT UNSIGNED   NOT NULL,
-    total_number INT            NOT NULL,
-    total_amount DECIMAL(20, 2) NOT NULL,
+    total INT            NOT NULL,
+    amount DECIMAL(20, 2) NOT NULL,
     PRIMARY KEY (order_id)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
