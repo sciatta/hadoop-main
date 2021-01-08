@@ -20,7 +20,7 @@ public abstract class AbstractImport {
     protected static final String URL = "jdbc:mysql://localhost/mall" + "?rewriteBatchedStatements=true";
     protected static final String USER = "root";
     protected static final String PASSWORD = "root";
-    protected static final int ONCE_COMMIT_NUMBER = 10000;
+    protected static final int ONCE_COMMIT_NUMBER = 500000;
     
     static {
         try {

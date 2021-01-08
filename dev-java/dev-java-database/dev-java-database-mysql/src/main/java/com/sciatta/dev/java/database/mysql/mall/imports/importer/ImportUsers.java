@@ -23,6 +23,6 @@ public class ImportUsers extends AbstractImport {
     
     public static void main(String[] args) throws SQLException {
         ImportUsers importUsers = new ImportUsers();
-        importUsers.execute(10000, "INSERT INTO users(name, nickname, password, id_number) VALUES (?,?,?,?)");
+        importUsers.execute(5000000, "INSERT INTO users(name, nickname, password, id_number) VALUES (?,?,?,?)");
     }
 }
