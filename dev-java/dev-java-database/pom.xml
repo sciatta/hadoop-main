@@ -12,7 +12,8 @@
     <artifactId>dev-java-database</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>dev-java-database-mysql</module>
+        <module>dev-java-database-mall</module>
+        <module>dev-java-database-datasource</module>
     </modules>
 
     <properties>
