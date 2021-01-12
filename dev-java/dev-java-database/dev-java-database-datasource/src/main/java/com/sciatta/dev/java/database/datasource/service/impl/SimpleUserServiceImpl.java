@@ -4,7 +4,6 @@ import com.sciatta.dev.java.database.datasource.dao.UserMasterDao;
 import com.sciatta.dev.java.database.datasource.dao.UserSlaveDao;
 import com.sciatta.dev.java.database.datasource.model.User;
 import com.sciatta.dev.java.database.datasource.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,14 +11,14 @@ import java.util.List;
 /**
  * Created by yangxiaoyu on 2021/1/11<br>
  * All Rights Reserved(C) 2017 - 2021 SCIATTA<br><p/>
- * UserServiceImpl
+ * SimpleUserServiceImpl
  */
-@Service
-public class UserServiceImpl implements UserService {
+@Service("simple")
+public class SimpleUserServiceImpl implements UserService {
     private UserMasterDao userMasterDao;
     private UserSlaveDao userSlaveDao;
     
-    public UserServiceImpl(UserMasterDao userMasterDao, UserSlaveDao userSlaveDao) {
+    public SimpleUserServiceImpl(UserMasterDao userMasterDao, UserSlaveDao userSlaveDao) {
         this.userMasterDao = userMasterDao;
         this.userSlaveDao = userSlaveDao;
     }

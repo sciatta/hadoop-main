@@ -4,21 +4,25 @@ import com.sciatta.dev.java.database.datasource.config.DataSourceConfig;
 import com.sciatta.dev.java.database.datasource.model.User;
 import com.sciatta.dev.java.database.datasource.service.UserService;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
+
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
  * Created by yangxiaoyu on 2021/1/11<br>
  * All Rights Reserved(C) 2017 - 2021 SCIATTA<br><p/>
- * UserServiceTests
+ * SimpleUserServiceTests
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = {DataSourceConfig.class})
-public class UserServiceTests {
+public class SimpleUserServiceTests {
     @Autowired
+    @Qualifier("simple")
     private UserService userService;
     
     @Test
@@ -48,6 +52,6 @@ public class UserServiceTests {
     @Test
     public void testSelect() {
         User userById = userService.getUserById(2);
-        assertEquals("s",userById.getDesc());
+        assertEquals("s", userById.getDesc());
     }
 }
