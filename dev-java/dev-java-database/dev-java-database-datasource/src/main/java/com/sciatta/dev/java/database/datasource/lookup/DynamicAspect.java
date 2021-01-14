@@ -1,5 +1,6 @@
 package com.sciatta.dev.java.database.datasource.lookup;
 
+import com.sciatta.dev.java.database.datasource.lookup.impl.DynamicDataSource;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -19,13 +20,12 @@ import java.lang.reflect.Method;
 public class DynamicAspect {
     @Pointcut("@annotation(CurrentDataSource)")
     public void lookupDataSource() {
-    
     }
     
     @Around("lookupDataSource()")
     public Object doAround(ProceedingJoinPoint pjp) throws Throwable {
         
-        beforeDoAround(pjp);
+        beforeDoAround(pjp);    // 方法执行前，通过方法签名上的注解确认访问的数据源
         
         Object ret = pjp.proceed(pjp.getArgs());
         
@@ -40,15 +40,15 @@ public class DynamicAspect {
                 signature.getMethod().getParameterTypes());
         CurrentDataSource annotation = declaredMethod.getAnnotation(CurrentDataSource.class);
         if (annotation != null) {
-            if (annotation.name().equals(DynamicDataSource.MASTER)) {
-                DynamicDataSource.context.set(annotation.name());
-            } else if (annotation.name().equals(DynamicDataSource.SLAVE)) {
-                DynamicDataSource.context.set(annotation.name());
+            if (annotation.name().equals(DataSourceEnum.MASTER)) {
+                DynamicDataSource.setDataSourceKey(annotation.name());
+            } else if (annotation.name().equals(DataSourceEnum.SLAVE)) {
+                DynamicDataSource.setDataSourceKey(annotation.name());
             }
         }
     }
     
     public void afterDoAround() {
-        DynamicDataSource.context.remove();
+        DynamicDataSource.resetDataSourceKey();
     }
 }

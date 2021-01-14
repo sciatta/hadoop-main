@@ -1,6 +1,7 @@
 package com.sciatta.dev.java.database.datasource.config;
 
-import com.sciatta.dev.java.database.datasource.lookup.DynamicDataSource;
+import com.sciatta.dev.java.database.datasource.lookup.DataSourceEnum;
+import com.sciatta.dev.java.database.datasource.lookup.impl.DynamicDataSource;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -34,9 +35,16 @@ public class DataSourceConfig {
     }
     
     @Bean
-    @ConfigurationProperties(prefix = "spring.datasource.slave")
-    @Qualifier("slaveDataSource")
-    DataSource slaveDataSource() {
+    @ConfigurationProperties(prefix = "spring.datasource.slave1")
+    @Qualifier("slaveDataSource1")
+    DataSource slaveDataSource1() {
+        return DataSourceBuilder.create().build();
+    }
+    
+    @Bean
+    @ConfigurationProperties(prefix = "spring.datasource.slave2")
+    @Qualifier("slaveDataSource2")
+    DataSource slaveDataSource2() {
         return DataSourceBuilder.create().build();
     }
     
@@ -45,12 +53,19 @@ public class DataSourceConfig {
     DataSource dynamicDataSource() {
         DynamicDataSource dynamicDataSource = new DynamicDataSource();
         
+        // 设置默认数据源
         dynamicDataSource.setDefaultTargetDataSource(masterDataSource());
         
+        // 设置所有数据源
         Map<Object, Object> dss = new HashMap<>();
-        dss.put(DynamicDataSource.MASTER, masterDataSource());
-        dss.put(DynamicDataSource.SLAVE, slaveDataSource());
+        dss.put(DataSourceEnum.MASTER, masterDataSource());
+        dss.put(DataSourceEnum.SLAVE1, slaveDataSource1());
+        dss.put(DataSourceEnum.SLAVE2, slaveDataSource2());
         dynamicDataSource.setTargetDataSources(dss);
+        
+        // 设置所有SLAVE
+        dynamicDataSource.setSlaveKey(DataSourceEnum.SLAVE1);
+        dynamicDataSource.setSlaveKey(DataSourceEnum.SLAVE2);
         
         return dynamicDataSource;
     }
@@ -61,7 +76,7 @@ public class DataSourceConfig {
     }
     
     @Bean("slaveJdbcTemplate")
-    public JdbcTemplate slaveJdbcTemplate(@Qualifier("slaveDataSource") DataSource dataSource) {
+    public JdbcTemplate slaveJdbcTemplate(@Qualifier("slaveDataSource1") DataSource dataSource) {
         return new JdbcTemplate(dataSource);
     }
     

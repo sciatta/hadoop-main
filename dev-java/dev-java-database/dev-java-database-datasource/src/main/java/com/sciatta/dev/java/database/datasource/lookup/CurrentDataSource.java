@@ -13,5 +13,5 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface CurrentDataSource {
-    String name() default DynamicDataSource.MASTER;
+    DataSourceEnum name() default DataSourceEnum.MASTER;
 }

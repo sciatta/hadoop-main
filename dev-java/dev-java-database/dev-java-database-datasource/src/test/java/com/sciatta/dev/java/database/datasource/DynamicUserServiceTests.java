@@ -50,8 +50,13 @@ public class DynamicUserServiceTests {
     
     @Test
     public void testSelect() {
-        User userById = userService.getUserById(2);
-        System.out.println(userById);
-        assertEquals("s", userById.getDesc());
+        for (int i = 0; i < 100; i++) {
+            User userById = userService.getUserById(2);
+            if (i % 2 == 0) {
+                assertEquals("s1", userById.getDesc());
+            } else {
+                assertEquals("s2", userById.getDesc());
+            }
+        }
     }
 }
