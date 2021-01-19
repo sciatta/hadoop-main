@@ -1,4 +1,4 @@
-package com.sciatta.dev.java.algorithm.linear.array.api;
+package com.sciatta.dev.java.algorithm.linear.array.example;
 
 import java.util.ArrayList;
 import java.util.List;
