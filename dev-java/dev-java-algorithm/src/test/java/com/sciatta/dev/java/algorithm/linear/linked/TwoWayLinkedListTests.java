@@ -13,7 +13,7 @@ import static org.junit.Assert.assertEquals;
 public class TwoWayLinkedListTests {
     @Test
     public void testInsertHead() {
-        TwoWayLinkedList list = newLinkedList();
+        TwoWayLinkedList<Integer> list = newLinkedList();
         list.insert(1);
         list.insert(2);
         list.insert(3);
@@ -22,7 +22,7 @@ public class TwoWayLinkedListTests {
 
     @Test
     public void testInsert() {
-        TwoWayLinkedList list = newLinkedList();
+        TwoWayLinkedList<Integer> list = newLinkedList();
         list.insert(1);
         list.insert(2);
 
@@ -35,7 +35,7 @@ public class TwoWayLinkedListTests {
 
     @Test(expected = IllegalArgumentException.class)
     public void testInsertIllegal() {
-        TwoWayLinkedList list = newLinkedList();
+        TwoWayLinkedList<Integer> list = newLinkedList();
         list.insert(1);
         list.insert(2);
 
@@ -44,7 +44,7 @@ public class TwoWayLinkedListTests {
 
     @Test
     public void testDelete() {
-        TwoWayLinkedList list = newLinkedList();
+        TwoWayLinkedList<Integer> list = newLinkedList();
         list.insert(1);
         list.insert(2);
 
@@ -68,7 +68,7 @@ public class TwoWayLinkedListTests {
 
     @Test
     public void testFind() {
-        TwoWayLinkedList list = newLinkedList();
+        TwoWayLinkedList<Integer> list = newLinkedList();
         list.insert(1);
         list.insert(2);
         list.insert(3);
@@ -80,7 +80,7 @@ public class TwoWayLinkedListTests {
         assertEquals(-1, list.find(8));
     }
 
-    private TwoWayLinkedList newLinkedList() {
-        return new TwoWayLinkedList();
+    private TwoWayLinkedList<Integer> newLinkedList() {
+        return new TwoWayLinkedList<>();
     }
 }

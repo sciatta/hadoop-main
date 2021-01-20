@@ -1,4 +1,4 @@
-package com.sciatta.dev.java.algorithm.linear.linked;
+package com.sciatta.dev.java.algorithm.linear.array.example;
 
 import com.sciatta.dev.java.algorithm.linear.Linear;
 

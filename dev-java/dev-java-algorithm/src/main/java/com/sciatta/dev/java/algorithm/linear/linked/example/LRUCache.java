@@ -1,4 +1,4 @@
-package com.sciatta.dev.java.algorithm.linear.linked;
+package com.sciatta.dev.java.algorithm.linear.linked.example;
 
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -11,8 +11,8 @@ import java.util.stream.Collectors;
  * 最近最少使用
  */
 public class LRUCache<K, V> {
-    private LinkedList<Node<K, V>> cache = new LinkedList<>();
-    private int capacity;
+    private final LinkedList<Node<K, V>> cache = new LinkedList<>();
+    private final int capacity;
     
     static class Node<K, V> {
         K key;
@@ -31,7 +31,7 @@ public class LRUCache<K, V> {
     public V get(K key) {
         for (Node<K, V> test : cache) {
             if (test.key == key || test.key.equals(key)) {
-                // 命中，移到链表头，链表头是最长使用的
+                // 命中，移到链表头，链表头是最常使用的
                 boolean remove = cache.remove(test);
                 if (remove) {
                     cache.addFirst(test);
@@ -44,7 +44,7 @@ public class LRUCache<K, V> {
     
     public void put(K key, V value) {
         if (cache.size() == capacity) {
-            // 缓存已满，移除链表尾，链表尾是最不长使用的
+            // 缓存已满，移除链表尾，链表尾是最不常使用的
             cache.removeLast();
         }
         
