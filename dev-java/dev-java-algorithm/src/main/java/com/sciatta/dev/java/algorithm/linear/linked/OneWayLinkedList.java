@@ -97,20 +97,7 @@ public class OneWayLinkedList<T> implements Linear<T> {
         return -1;
     }
     
-    public T findRealData(T data) {
-        Node<T> cur = head.next;
-    
-        while (cur != null) {
-            if (cur.value != null && cur.value.equals(data)) {
-                return cur.value;
-            } else {
-                cur = cur.next;
-            }
-        }
-        return null;
-    }
-    
-    static class Node<T> {
+    public static class Node<T> {
         T value;
         Node<T> next;
         
@@ -119,6 +106,22 @@ public class OneWayLinkedList<T> implements Linear<T> {
         
         public Node(T value) {
             this.value = value;
+        }
+    
+        public T getValue() {
+            return value;
+        }
+    
+        public void setValue(T value) {
+            this.value = value;
+        }
+    
+        public Node<T> getNext() {
+            return next;
+        }
+    
+        public void setNext(Node<T> next) {
+            this.next = next;
         }
     }
     
