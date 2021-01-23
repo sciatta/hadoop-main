@@ -21,6 +21,7 @@
         <module>dev-java-lombok</module>
         <module>dev-java-guava</module>
         <module>dev-java-database</module>
+        <module>dev-java-rpc</module>
     </modules>
 
 </project>
