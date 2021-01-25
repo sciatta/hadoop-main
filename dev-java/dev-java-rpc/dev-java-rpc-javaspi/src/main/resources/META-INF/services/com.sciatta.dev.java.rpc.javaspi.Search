@@ -1,2 +1,3 @@
 com.sciatta.dev.java.rpc.javaspi.impl.DatabaseSearch
+com.sciatta.dev.java.rpc.javaspi.impl.DatabaseSearch # 不支持相同扩展实现的多个不同扩展实例
 com.sciatta.dev.java.rpc.javaspi.impl.FileSystemSearch
