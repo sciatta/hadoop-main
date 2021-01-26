@@ -1,4 +1,4 @@
-package com.sciatta.dev.java.algorithm.linear.array;
+package com.sciatta.dev.java.algorithm.linear.array.impl;
 
 /**
  * Created by yangxiaoyu on 2020/10/10<br>

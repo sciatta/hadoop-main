@@ -1,5 +1,6 @@
-package com.sciatta.dev.java.algorithm.linear.array;
+package com.sciatta.dev.java.algorithm.linear.array.impl;
 
+import com.sciatta.dev.java.algorithm.linear.array.impl.SequenceList;
 import org.junit.Test;
 
 import java.util.Arrays;

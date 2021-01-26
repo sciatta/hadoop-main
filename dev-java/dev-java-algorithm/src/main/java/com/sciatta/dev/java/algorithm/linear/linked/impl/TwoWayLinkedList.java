@@ -1,85 +1,82 @@
-package com.sciatta.dev.java.algorithm.linear.linked;
-
-import com.sciatta.dev.java.algorithm.linear.Linear;
+package com.sciatta.dev.java.algorithm.linear.linked.impl;
 
 /**
- * Created by yangxiaoyu on 2020/10/11<br>
+ * Created by yangxiaoyu on 2020/10/12<br>
  * All Rights Reserved(C) 2017 - 2020 SCIATTA<br><p/>
- * 单向链表
+ * 双向链表
  */
-public class OneWayLinkedList<T> implements Linear<T> {
+public class TwoWayLinkedList<T> {
     private Node<T> head;
     private int count;
     
-    public OneWayLinkedList() {
-        head = new Node<>();    // 哨兵，解决边界判断问题
+    public TwoWayLinkedList() {
+        head = new Node<>();
+        count = 0;
     }
     
-    /**
-     * 在链表头插入元素
-     *
-     * @param data
-     */
-    @Override
+    public Node<T> getHead() {
+        return head;
+    }
+    
+    public int getCount() {
+        return count;
+    }
+    
     public void insert(T data) {
         Node<T> node = new Node<>(data);
-        
-        node.next = head.next;
-        head.next = node;
-        
+        linkNode(head, node);
         count++;
     }
     
-    /**
-     * 在指定位置之前插入元素
-     *
-     * @param data
-     * @param i
-     */
-    @Override
     public void insert(T data, int i) {
         if (i > count) throw new IllegalArgumentException("插入位置不合法 " + i);
         
         if (i == 0) {
-            insert(data);   // 插入到头节点之后
+            insert(data);
             return;
         }
         
-        Node<T> pre = head;
+        Node<T> cur = head;
+        
         for (int j = 0; j < i; j++) {
-            pre = pre.next; // 找到待插入位置的前驱节点
+            cur = cur.next;
         }
         
         Node<T> node = new Node<>(data);
-        node.next = pre.next;
-        pre.next = node;
-        
+        linkNode(cur, node);
         count++;
     }
     
-    @Override
+    private void linkNode(Node<T> cur, Node<T> node) {
+        Node<T> temp = cur.next;
+        
+        cur.next = node;
+        
+        node.pre = cur;
+        node.next = temp;
+        
+        if (temp != null) {
+            temp.pre = node;
+        }
+    }
+    
     public void delete(T data) {
-        Node<T> pre = head;
         Node<T> cur = head.next;
         
         while (cur != null) {
             if (cur.value != null && cur.value.equals(data)) {
-                pre.next = cur.next;
+                cur.pre.next = cur.next;
+                if (cur.next != null) cur.next.pre = cur.pre;
                 cur.next = null;
+                cur.pre = null;
                 count--;
                 break;
             } else {
-                pre = cur;
                 cur = cur.next;
             }
         }
     }
-
-    public void deleteLast() {
     
-    }
-    
-    @Override
     public int find(T data) {
         int index = 0;
         
@@ -97,35 +94,6 @@ public class OneWayLinkedList<T> implements Linear<T> {
         return -1;
     }
     
-    public static class Node<T> {
-        T value;
-        Node<T> next;
-        
-        public Node() {
-        }
-        
-        public Node(T value) {
-            this.value = value;
-        }
-    
-        public T getValue() {
-            return value;
-        }
-    
-        public void setValue(T value) {
-            this.value = value;
-        }
-    
-        public Node<T> getNext() {
-            return next;
-        }
-    
-        public void setNext(Node<T> next) {
-            this.next = next;
-        }
-    }
-    
-    @Override
     public T[] toArray() {
         Object[] ret = new Object[count];
         Node<T> cur = head;
@@ -139,11 +107,40 @@ public class OneWayLinkedList<T> implements Linear<T> {
         return (T[]) ret;
     }
     
-    public Node<T> getHead() {
-        return head;
-    }
-    
-    public int getCount() {
-        return count;
+    public static class Node<T> {
+        T value;
+        Node<T> next;
+        Node<T> pre;
+        
+        public Node() {
+        }
+        
+        public Node(T value) {
+            this.value = value;
+        }
+        
+        public T getValue() {
+            return value;
+        }
+        
+        public void setValue(T value) {
+            this.value = value;
+        }
+        
+        public Node<T> getNext() {
+            return next;
+        }
+        
+        public void setNext(Node<T> next) {
+            this.next = next;
+        }
+        
+        public Node<T> getPre() {
+            return pre;
+        }
+        
+        public void setPre(Node<T> pre) {
+            this.pre = pre;
+        }
     }
 }

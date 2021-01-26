@@ -1,6 +1,6 @@
-package com.sciatta.dev.java.algorithm.linear.linked.example;
+package com.sciatta.dev.java.algorithm.linear.linked.resolve;
 
-import com.sciatta.dev.java.algorithm.linear.linked.OneWayLinkedList;
+import com.sciatta.dev.java.algorithm.linear.linked.impl.OneWayLinkedList;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

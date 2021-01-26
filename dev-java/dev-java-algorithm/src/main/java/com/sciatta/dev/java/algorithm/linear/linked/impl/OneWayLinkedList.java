@@ -1,88 +1,66 @@
-package com.sciatta.dev.java.algorithm.linear.linked;
-
-import com.sciatta.dev.java.algorithm.linear.Linear;
+package com.sciatta.dev.java.algorithm.linear.linked.impl;
 
 /**
- * Created by yangxiaoyu on 2020/10/12<br>
+ * Created by yangxiaoyu on 2020/10/11<br>
  * All Rights Reserved(C) 2017 - 2020 SCIATTA<br><p/>
- * 双向链表
+ * 单向链表
  */
-public class TwoWayLinkedList<T> implements Linear<T> {
+public class OneWayLinkedList<T> {
     private Node<T> head;
     private int count;
     
-    public TwoWayLinkedList() {
-        head = new Node<>();
-        count = 0;
+    public OneWayLinkedList() {
+        head = new Node<>();    // 哨兵，解决边界判断问题
     }
     
-    public Node<T> getHead() {
-        return head;
-    }
-    
-    public int getCount() {
-        return count;
-    }
-    
-    @Override
+    // 在链表头插入元素
     public void insert(T data) {
         Node<T> node = new Node<>(data);
-        linkNode(head, node);
+        
+        node.next = head.next;
+        head.next = node;
+        
         count++;
     }
     
-    @Override
+    // 在指定位置之前插入元素
     public void insert(T data, int i) {
         if (i > count) throw new IllegalArgumentException("插入位置不合法 " + i);
         
         if (i == 0) {
-            insert(data);
+            insert(data);   // 插入到头节点之后
             return;
         }
         
-        Node<T> cur = head;
-        
+        Node<T> pre = head;
         for (int j = 0; j < i; j++) {
-            cur = cur.next;
+            pre = pre.next; // 找到待插入位置的前驱节点
         }
         
         Node<T> node = new Node<>(data);
-        linkNode(cur, node);
+        node.next = pre.next;
+        pre.next = node;
+        
         count++;
     }
     
-    private void linkNode(Node<T> cur, Node<T> node) {
-        Node<T> temp = cur.next;
-        
-        cur.next = node;
-        
-        node.pre = cur;
-        node.next = temp;
-        
-        if (temp != null) {
-            temp.pre = node;
-        }
-    }
-    
-    @Override
     public void delete(T data) {
+        Node<T> pre = head;
         Node<T> cur = head.next;
         
         while (cur != null) {
             if (cur.value != null && cur.value.equals(data)) {
-                cur.pre.next = cur.next;
-                if (cur.next != null) cur.next.pre = cur.pre;
+                pre.next = cur.next;
                 cur.next = null;
-                cur.pre = null;
                 count--;
                 break;
             } else {
+                pre = cur;
                 cur = cur.next;
             }
         }
     }
     
-    @Override
     public int find(T data) {
         int index = 0;
         
@@ -100,24 +78,9 @@ public class TwoWayLinkedList<T> implements Linear<T> {
         return -1;
     }
     
-    @Override
-    public T[] toArray() {
-        Object[] ret = new Object[count];
-        Node<T> cur = head;
-        int index = 0;
-        
-        while (cur.next != null) {
-            cur = cur.next;
-            ret[index++] = cur.value;
-        }
-        
-        return (T[]) ret;
-    }
-    
     public static class Node<T> {
         T value;
         Node<T> next;
-        Node<T> pre;
         
         public Node() {
         }
@@ -141,13 +104,26 @@ public class TwoWayLinkedList<T> implements Linear<T> {
         public void setNext(Node<T> next) {
             this.next = next;
         }
+    }
+    
+    public T[] toArray() {
+        Object[] ret = new Object[count];
+        Node<T> cur = head;
+        int index = 0;
         
-        public Node<T> getPre() {
-            return pre;
+        while (cur.next != null) {
+            cur = cur.next;
+            ret[index++] = cur.value;
         }
         
-        public void setPre(Node<T> pre) {
-            this.pre = pre;
-        }
+        return (T[]) ret;
+    }
+    
+    public Node<T> getHead() {
+        return head;
+    }
+    
+    public int getCount() {
+        return count;
     }
 }

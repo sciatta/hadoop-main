@@ -1,9 +1,6 @@
-package com.sciatta.dev.java.algorithm.linear.linked.example;
+package com.sciatta.dev.java.algorithm.linear.linked.resolve;
 
-import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * Created by yangxiaoyu on 2021/1/18<br>

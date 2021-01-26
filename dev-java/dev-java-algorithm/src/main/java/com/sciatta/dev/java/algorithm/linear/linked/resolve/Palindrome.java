@@ -1,6 +1,6 @@
-package com.sciatta.dev.java.algorithm.linear.linked.example;
+package com.sciatta.dev.java.algorithm.linear.linked.resolve;
 
-import com.sciatta.dev.java.algorithm.linear.linked.TwoWayLinkedList;
+import com.sciatta.dev.java.algorithm.linear.linked.impl.TwoWayLinkedList;
 
 /**
  * Created by yangxiaoyu on 2021/1/19<br>
@@ -17,7 +17,7 @@ public class Palindrome<T> {
     }
     
     public boolean isPalindrome() {
-        boolean end = false;
+        boolean end = false;    // fast是否走到终点
         TwoWayLinkedList.Node<T> slow, fast, back = null;
         fast = slow = list.getHead().getNext();
         

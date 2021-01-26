@@ -1,4 +1,4 @@
-package com.sciatta.dev.java.algorithm.linear.linked.example;
+package com.sciatta.dev.java.algorithm.linear.linked.resolve;
 
 import org.junit.Test;
 

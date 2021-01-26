@@ -1,4 +1,4 @@
-package com.sciatta.dev.java.algorithm.linear.array;
+package com.sciatta.dev.java.algorithm.linear.array.impl;
 
 import org.junit.Test;
 

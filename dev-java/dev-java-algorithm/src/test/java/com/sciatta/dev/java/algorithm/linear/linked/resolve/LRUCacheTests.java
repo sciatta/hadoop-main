@@ -1,6 +1,5 @@
-package com.sciatta.dev.java.algorithm.linear.linked.example;
+package com.sciatta.dev.java.algorithm.linear.linked.resolve;
 
-import com.sciatta.dev.java.algorithm.linear.linked.example.LRUCache;
 import org.junit.Before;
 import org.junit.Test;
 
