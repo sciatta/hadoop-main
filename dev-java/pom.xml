@@ -22,6 +22,7 @@
         <module>dev-java-guava</module>
         <module>dev-java-database</module>
         <module>dev-java-rpc</module>
+        <module>dev-java-dubbo</module>
     </modules>
 
 </project>

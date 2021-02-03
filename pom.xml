@@ -58,6 +58,7 @@
         <httpclient.version>4.5.5</httpclient.version>
         <httpasyncclient.version>4.1.4</httpasyncclient.version>
         <guava.version>29.0-jre</guava.version>
+        <dubbo.version>2.6.9</dubbo.version>
 
         <maven-compiler-plugin.version>3.6.0</maven-compiler-plugin.version>
         <maven-surefire-plugin.version>2.18.1</maven-surefire-plugin.version>
@@ -199,6 +200,12 @@
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
                 <version>${guava.version}</version>
+            </dependency>
+            <!-- dubbo -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>dubbo</artifactId>
+                <version>${dubbo.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
