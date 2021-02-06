@@ -1,9 +1,6 @@
 package com.sciatta.dev.java.dubbo.api.provider;
 
-import com.alibaba.dubbo.config.ApplicationConfig;
-import com.alibaba.dubbo.config.ProtocolConfig;
-import com.alibaba.dubbo.config.RegistryConfig;
-import com.alibaba.dubbo.config.ServiceConfig;
+import com.alibaba.dubbo.config.*;
 import com.sciatta.dev.java.dubbo.api.DemoService;
 import com.sciatta.dev.java.dubbo.api.provider.impl.DemoServiceImpl;
 
@@ -17,15 +14,18 @@ import java.io.InputStreamReader;
  * Application 通过 `java -jar arthas-boot.jar --telnet-port 9998 --http-port -1` 测试
  */
 public class Application {
+    private static ApplicationConfig application;
+    private static RegistryConfig registry;
+    private static ProtocolConfig protocol;
     
     public static ServiceConfig<DemoService> getService() {
-        ApplicationConfig application = new ApplicationConfig();
+        application = new ApplicationConfig();
         application.setName("test-protocol-random-port");
         
-        RegistryConfig registry = new RegistryConfig();
+        registry = new RegistryConfig();
         registry.setAddress("multicast://224.5.6.7:1234");
         
-        ProtocolConfig protocol = new ProtocolConfig();
+        protocol = new ProtocolConfig();
         protocol.setName("dubbo");  // 设置协议名称
         protocol.setPort(20881);
         
@@ -49,7 +49,7 @@ public class Application {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    
+        
         demoService.unexport();
     }
     
@@ -57,6 +57,21 @@ public class Application {
         ServiceConfig<DemoService> demoService = Application.getService();
         demoService.export();
         
+        testLocalRef();
+        
         Application.exit(demoService);
+    }
+    
+    public static void testLocalRef() {
+        ReferenceConfig<DemoService> rc = new ReferenceConfig<>();
+        
+        rc.setApplication(application);
+        rc.setRegistry(registry);
+        rc.setInterface(DemoService.class.getName());
+        rc.setInjvm(true);  // 用于测试
+        
+        DemoService proxy = rc.get();
+        String ret = proxy.sayName("rain");
+        System.out.println("service return: " + ret);
     }
 }
