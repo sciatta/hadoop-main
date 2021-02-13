@@ -6,6 +6,10 @@ spring:
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/cache
+  cache:  # 默认 simple cache manager
+    type: ehcache
+    ehcache:
+      config: classpath:ehcache.xml
 mybatis:
   type-aliases-package: com.sciatta.dev.java.database.cache.model
   mapper-locations: classpath:mapper/*Mapper.xml
@@ -18,3 +22,6 @@ logging:
           java:
             database:
               cache: debug
+    org:
+      springframework:
+        cache: trace

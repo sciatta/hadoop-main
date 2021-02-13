@@ -3,9 +3,9 @@
 <mapper namespace="com.sciatta.dev.java.database.cache.dao.UserMapper">
 
     <!-- 开启 mybatis Ehcache cache -->
-    <cache type="org.mybatis.caches.ehcache.LoggingEhcache">
+    <!-- <cache type="org.mybatis.caches.ehcache.LoggingEhcache">
         <property name="memoryStoreEvictionPolicy" value="LRU"/>
-    </cache>
+    </cache> -->
 
     <resultMap id="BaseResultMap" type="com.sciatta.dev.java.database.cache.model.User">
         <result column="id" jdbcType="INTEGER" property="id"/>
