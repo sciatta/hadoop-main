@@ -59,6 +59,7 @@
         <httpasyncclient.version>4.1.4</httpasyncclient.version>
         <guava.version>29.0-jre</guava.version>
         <dubbo.version>2.6.9</dubbo.version>
+        <mybatis.version>2.1.4</mybatis.version>
 
         <maven-compiler-plugin.version>3.6.0</maven-compiler-plugin.version>
         <maven-surefire-plugin.version>2.18.1</maven-surefire-plugin.version>
@@ -206,6 +207,12 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>dubbo</artifactId>
                 <version>${dubbo.version}</version>
+            </dependency>
+            <!-- mybatis -->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
