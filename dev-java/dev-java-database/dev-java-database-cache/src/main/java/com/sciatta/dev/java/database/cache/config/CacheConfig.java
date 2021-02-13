@@ -47,21 +47,21 @@ public class CacheConfig extends CachingConfigurerSupport {
             return sb.toString();
         };
     }
-    
-//    @Bean
-//    public RedisTemplate<Object, Object> redisTemplate() {
-//        RedisTemplate<Object, Object> redisTemplate = new RedisTemplate<>();
-//        redisTemplate.setConnectionFactory(factory);
-//
-//        GenericJackson2JsonRedisSerializer genericJackson2JsonRedisSerializer = new GenericJackson2JsonRedisSerializer();
-//
-//        redisTemplate.setKeySerializer(genericJackson2JsonRedisSerializer);
-//        redisTemplate.setValueSerializer(genericJackson2JsonRedisSerializer);
-//
-//        redisTemplate.setHashKeySerializer(new StringRedisSerializer());
-//        redisTemplate.setHashValueSerializer(genericJackson2JsonRedisSerializer);
-//        return redisTemplate;
-//    }
+
+    @Bean
+    public RedisTemplate<Object, Object> redisTemplate() {
+        RedisTemplate<Object, Object> redisTemplate = new RedisTemplate<>();
+        redisTemplate.setConnectionFactory(factory);
+
+        GenericJackson2JsonRedisSerializer genericJackson2JsonRedisSerializer = new GenericJackson2JsonRedisSerializer();
+
+        redisTemplate.setKeySerializer(genericJackson2JsonRedisSerializer);
+        redisTemplate.setValueSerializer(genericJackson2JsonRedisSerializer);
+
+        redisTemplate.setHashKeySerializer(new StringRedisSerializer());
+        redisTemplate.setHashValueSerializer(genericJackson2JsonRedisSerializer);
+        return redisTemplate;
+    }
     
     @Bean
     @Override
@@ -81,8 +81,8 @@ public class CacheConfig extends CachingConfigurerSupport {
     public CacheManager cacheManager() {
         RedisCacheConfiguration cacheConfiguration =
                 defaultCacheConfig()
-                        .disableCachingNullValues();
-        //.serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(new GenericJackson2JsonRedisSerializer()));
+                        .disableCachingNullValues()
+                        .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(new GenericJackson2JsonRedisSerializer()));
         return RedisCacheManager.builder(factory).cacheDefaults(cacheConfiguration).build();
     }
 }
