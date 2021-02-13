@@ -21,8 +21,12 @@ public class UserServiceImpl implements UserService {
     
     @Override
     @Cacheable(value = "userCache", key = "#id")
+    // ====ehcache====
     // value 要同ehcache.xml配置的cache name一致
     // key #参数名 或者 #p参数index
+    
+    // ====redis====
+    // userCache::1
     public User find(int id) {
         return userMapper.find(id);
     }

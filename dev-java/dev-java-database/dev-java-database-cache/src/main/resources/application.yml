@@ -1,18 +1,25 @@
 server:
   port: 8888
+
 spring:
   datasource:
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/cache
-  cache:  # 默认 simple cache manager
-    type: ehcache
-    ehcache:
-      config: classpath:ehcache.xml
+  cache: # 默认 simple cache manager
+    type: redis
+    redis:
+      host: localhost
+      lettuce:
+        pool:
+          max-active: 16
+          max-wait: 10ms
+
 mybatis:
   type-aliases-package: com.sciatta.dev.java.database.cache.model
   mapper-locations: classpath:mapper/*Mapper.xml
+
 logging:
   level:
     root: info
