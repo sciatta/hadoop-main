@@ -9,3 +9,12 @@ spring:
 mybatis:
   type-aliases-package: com.sciatta.dev.java.database.cache.model
   mapper-locations: classpath:mapper/*Mapper.xml
+logging:
+  level:
+    root: info
+    com:
+      sciatta:
+        dev:
+          java:
+            database:
+              cache: debug

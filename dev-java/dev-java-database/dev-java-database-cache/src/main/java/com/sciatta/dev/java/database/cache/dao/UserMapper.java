@@ -2,6 +2,7 @@ package com.sciatta.dev.java.database.cache.dao;
 
 import com.sciatta.dev.java.database.cache.model.User;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
  * UserMapper
  */
 @Mapper
+@Repository
 public interface UserMapper {
     // http://localhost:8888/user/find\?id\=1
     User find(int id);
