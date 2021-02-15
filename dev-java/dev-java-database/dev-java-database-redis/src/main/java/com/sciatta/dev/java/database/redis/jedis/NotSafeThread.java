@@ -1,6 +1,7 @@
 package com.sciatta.dev.java.database.redis.jedis;
 
 import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
 
 /**
  * Created by yangxiaoyu on 2021/2/15<br>
@@ -8,22 +9,32 @@ import redis.clients.jedis.Jedis;
  * NotSafeThread
  */
 public class NotSafeThread {
-    private Jedis jedis;    // 不是线程安全的
+    private JedisPool jp;    // jedis不是线程安全的，需要池化
     private static final String key = "jedis_not_safe_thread";
     private static final int times = 10000;
-    private static final int threadNumber = 2;
+    private static final int threadNumber = 5;
     
     public NotSafeThread() {
-        jedis = new Jedis("127.0.0.1", 6379);
-        jedis.set(key, "0");
+        jp = new JedisPool("127.0.0.1", 6379);
+        Jedis resource = jp.getResource();
+        try {
+            resource.set(key, "0"); // 初始化
+        } finally {
+            resource.close();
+        }
     }
     
     class Worker implements Runnable {
         
         @Override
         public void run() {
-            for (int i = 0; i < times; i++) {
-                jedis.incr(key);
+            Jedis resource = jp.getResource();
+            try {
+                for (int i = 0; i < times; i++) {
+                    resource.incr(key);
+                }
+            } finally {
+                resource.close();
             }
         }
     }
@@ -42,11 +53,20 @@ public class NotSafeThread {
     }
     
     public String getResult() {
-        return jedis.get(key);
+        Jedis resource = jp.getResource();
+        String result;
+        try {
+            result = resource.get(key);
+        } finally {
+            resource.close();
+        }
+        
+        return result;
     }
     
     public static void main(String[] args) throws InterruptedException {
         NotSafeThread notSafe = new NotSafeThread();
         notSafe.run();
+        System.out.println("result is: " + notSafe.getResult());
     }
 }

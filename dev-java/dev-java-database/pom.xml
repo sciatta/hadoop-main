@@ -15,6 +15,7 @@
         <module>dev-java-database-mall</module>
         <module>dev-java-database-datasource</module>
         <module>dev-java-database-cache</module>
+        <module>dev-java-database-redis</module>
     </modules>
 
     <properties>
