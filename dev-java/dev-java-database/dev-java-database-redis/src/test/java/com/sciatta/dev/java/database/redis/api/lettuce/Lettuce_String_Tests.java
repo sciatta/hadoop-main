@@ -1,4 +1,4 @@
-package com.sciatta.dev.java.database.redis.lettuceapi;
+package com.sciatta.dev.java.database.redis.api.lettuce;
 
 import io.lettuce.core.LettuceStrings;
 import io.lettuce.core.RedisClient;

@@ -1,4 +1,4 @@
-package com.sciatta.dev.java.database.redis.jedisapi;
+package com.sciatta.dev.java.database.redis.api.jedis;
 
 import org.junit.Before;
 import org.junit.Test;

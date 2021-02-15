@@ -1,4 +1,4 @@
-package com.sciatta.dev.java.database.redis.redissonapi;
+package com.sciatta.dev.java.database.redis.api.redisson;
 
 import org.junit.After;
 import org.junit.Before;
