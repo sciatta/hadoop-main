@@ -61,6 +61,7 @@
         <dubbo.version>2.6.9</dubbo.version>
         <mybatis.spring.boot.starter.version>2.1.4</mybatis.spring.boot.starter.version>
         <mybatis.ehcache.version>1.0.0</mybatis.ehcache.version>
+        <redisson.version>3.15.0</redisson.version>
 
         <maven-compiler-plugin.version>3.6.0</maven-compiler-plugin.version>
         <maven-surefire-plugin.version>2.18.1</maven-surefire-plugin.version>
@@ -219,6 +220,12 @@
                 <groupId>org.mybatis</groupId>
                 <artifactId>mybatis-ehcache</artifactId>
                 <version>${mybatis.ehcache.version}</version>
+            </dependency>
+            <!-- redisson-->
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson</artifactId>
+                <version>${redisson.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
