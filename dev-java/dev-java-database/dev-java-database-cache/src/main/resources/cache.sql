@@ -10,6 +10,7 @@ create table if not exists cache.users
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
 
+truncate table cache.users;
 insert into cache.users(name) values ('rain');
 insert into cache.users(name) values ('lucky');
 insert into cache.users(name) values ('yoyo');

@@ -14,9 +14,11 @@ import java.util.List;
 @Mapper
 @Repository
 public interface UserMapper {
-    // http://localhost:8888/user/find\?id\=1
     User find(int id);
     
-    // http://localhost:8888/user/list
     List<User> list();
+    
+    boolean delete(int id);
+    
+    boolean update(User user);
 }

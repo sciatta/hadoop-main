@@ -23,4 +23,16 @@
         from users
     </select>
 
+    <delete id="delete">
+        delete
+        from users
+        where id = #{id}
+    </delete>
+
+    <update id="update">
+        update users
+        set name = #{name}
+        where id = #{id}
+    </update>
+
 </mapper>

@@ -18,13 +18,27 @@ public class UserController {
     @Autowired
     UserService userService;
     
+    // http://localhost:8888/user/find\?id\=1
     @RequestMapping("/user/find")
     public User find(int id) {
         return userService.find(id);
     }
     
+    // http://localhost:8888/user/list
     @RequestMapping("/user/list")
     public List<User> list() {
         return userService.list();
+    }
+    
+    // http://localhost:8888/user/find\?id\=1
+    @RequestMapping("/user/delete")
+    public boolean delete(int id) {
+        return userService.delete(id);
+    }
+    
+    // http://localhost:8888/user/update\?id\=1\&name\=haha
+    @RequestMapping("/user/update")
+    public User update(User user) {
+        return userService.update(user);
     }
 }

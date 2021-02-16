@@ -39,7 +39,7 @@ public class CacheConfig extends CachingConfigurerSupport {
         return (o, method, objects) -> {
             StringBuilder sb = new StringBuilder();
             sb.append(o.getClass().getName()).append(".");
-            sb.append(method.getName()).append(".");
+            // sb.append(method.getName()).append(".");
             for (Object obj : objects) {
                 sb.append(obj.toString());
             }
