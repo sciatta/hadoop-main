@@ -30,4 +30,10 @@ public class BubbleSortTests {
         int[] result = sort.sort(new int[]{5, 8, 3, 1, 6});
         assertArrayEquals(new int[]{1, 3, 5, 6, 8}, result);
     }
+    
+    @Test
+    public void testOrderArray() {
+        int[] result = sort.sort(new int[]{1, 2, 3, 4, 5});
+        assertArrayEquals(new int[]{1, 2, 3, 4, 5}, result);
+    }
 }

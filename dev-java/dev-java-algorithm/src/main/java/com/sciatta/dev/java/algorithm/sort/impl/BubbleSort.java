@@ -12,6 +12,7 @@ public class BubbleSort implements Sort {
     @Override
     public int[] sort(int[] array) {
         int temp;
+        boolean swap = false;
         
         for (int i = 0; i < array.length - 1; i++) { // 控制轮数
             for (int j = 0; j < (array.length - i - 1); j++) {
@@ -19,7 +20,13 @@ public class BubbleSort implements Sort {
                     temp = array[j];
                     array[j] = array[j + 1];
                     array[j + 1] = temp;
+                    swap = true;
                 }
+            }
+            
+            if (!swap) {
+                // 没有交换，说明已有序
+                break;
             }
             
         }
