@@ -10,13 +10,13 @@ import com.sciatta.dev.java.algorithm.sort.Sort;
 public class SelectSort implements Sort {
     @Override
     public int[] sort(int[] array) {
-        int[] result = array;
         int minIndex;
         boolean needSwap = false;
+        int temp;
         
         for (int i = 0; i < array.length - 1; i++) {
             minIndex = i;
-            for (int j = 1; j < array.length; j++) {
+            for (int j = i + 1; j < array.length; j++) {
                 if (array[minIndex] > array[j]) {
                     minIndex = j;
                     needSwap = true;
@@ -24,12 +24,14 @@ public class SelectSort implements Sort {
             }
             
             if (needSwap) { // 优化，只有当前判断不是最小值，才会交换
-                array[i] = array[minIndex];
+                temp = array[minIndex];
+                array[minIndex] = array[i];
+                array[i] = temp;
                 needSwap = false;
             }
             
         }
         
-        return result;
+        return array;
     }
 }

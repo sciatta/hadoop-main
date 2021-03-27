@@ -13,7 +13,11 @@ public class InsertSort implements Sort {
         int insertIndex = 0;
         boolean needSwap = false;
         int swapElement;
-        
+    
+        /**
+         * 假设第一个元素处于有序数组中，遍历后续数组元素，逐个插入到前边的有序数组中
+         * | 5 | 8, 3, 1, 6|
+         */
         for (int i = 1; i < array.length; i++) {
             swapElement = array[i];
             for (int j = i - 1; j >= 0; j--) {

@@ -11,20 +11,19 @@ public class BubbleSort implements Sort {
     
     @Override
     public int[] sort(int[] array) {
-        int[] result = array;
         int temp;
         
         for (int i = 0; i < array.length - 1; i++) { // 控制轮数
             for (int j = 0; j < (array.length - i - 1); j++) {
-                if (result[j] > result[j + 1]) {
-                    temp = result[j];
-                    result[j] = result[j + 1];
-                    result[j + 1] = temp;
+                if (array[j] > array[j + 1]) {
+                    temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
                 }
             }
             
         }
         
-        return result;
+        return array;
     }
 }
