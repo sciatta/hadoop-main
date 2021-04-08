@@ -156,4 +156,15 @@ public class APITests {
         String t6 = "ab" + "c";
         assertTrue(t5 == t6);
     }
+    
+    @Test
+    public void testStringEq() {
+        String a = new String("ab"); // a 为一个引用
+        String b = new String("ab"); // b为另一个引用,对象的内容一样
+        String aa = "ab"; // 放在常量池中
+        String bb = "ab"; // 从常量池中查找
+        assertTrue(aa == bb);
+        assertFalse(a == b);    // 两个不同对象
+        assertTrue(a.equals(b));    // object默认比较对象地址，String重写了equals方法
+    }
 }
