@@ -19,7 +19,7 @@ public class Pizza {
     }
     
     enum PizzaStatus {
-        ORDERED(0) {
+        ORDERED(99) {
             @Override
             boolean isOrdered() {
                 return true;
