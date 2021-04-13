@@ -31,4 +31,11 @@ public class BucketSortTests {
         int[] result = sort.sort(new int[]{5, 8, 3, 1, 6});
         assertArrayEquals(new int[]{1, 3, 5, 6, 8}, result);
     }
+    
+    @Test
+    public void testTwoBuckets() {
+        Sort sort = new BucketSort(2);
+        int[] result = sort.sort(new int[]{22, 20, 29, 25, 30});
+        assertArrayEquals(new int[]{20, 22, 25, 29, 30}, result);
+    }
 }

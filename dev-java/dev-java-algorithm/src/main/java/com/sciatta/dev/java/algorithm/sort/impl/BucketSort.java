@@ -42,11 +42,12 @@ public class BucketSort implements Sort {
         
         // 将待排序数组元素装入桶中，每个桶保持有序性
         for (int e : array) {
-            Object bucket = buckets[e / range];
+            int index = (e - min) / range;
+            Object bucket = buckets[index];
             if (bucket == null) {
-                buckets[e / range] = new ArrayList<Integer>();
+                buckets[index] = new ArrayList<Integer>();
             }
-            ((ArrayList<Integer>) buckets[e / range]).add(e);
+            ((ArrayList<Integer>) buckets[index]).add(e);
         }
         
         // 每个桶中的元素快速排序，之后逐个桶遍历其中元素即可获得有序数组
