@@ -26,7 +26,7 @@ public class CollectionDemo {
         Collections.shuffle(list); // 洗牌
         print(list);
         
-        int num = Collections.frequency(list, 6);    // 指定集合中元素的数量
+        int num = Collections.frequency(list, 6);    // 集合中获取指定元素的数量
         print(num);
         
         num = Collections.max(list);    // 最大值
