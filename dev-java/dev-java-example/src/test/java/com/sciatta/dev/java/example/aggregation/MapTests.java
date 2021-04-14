@@ -18,6 +18,8 @@ import java.util.concurrent.ConcurrentHashMap;
 public class MapTests {
     @Test
     public void testMap() {
+        // 1.7 数组+链表
+        // 1.8 数组+链表/红黑树
         Map<String, Integer> parameters = new HashMap<>(getDefaultsMap());
         parameters.putAll(getOverridesMap());
         
@@ -28,6 +30,8 @@ public class MapTests {
                 assertEquals(2, (int) parameters.get(key));
             }
         }
+        // 重要方法
+        // resize 分配默认容量或扩容，注意扩容需要rehash，影响性能
     }
     
     private Map<String, Integer> getDefaultsMap() {
@@ -53,9 +57,13 @@ public class MapTests {
     
     @Test
     public void testConcurrentHashMap() {
-        ConcurrentHashMap<String, String> hashMap = new ConcurrentHashMap<>();
-        hashMap.put("a", "1");
-        hashMap.put("b", "2");
+        // 1.7  分段锁，Segment 数组（不可扩容） + HashEntry 数组（可扩容） + 链表；对segment加锁，segment默认16，最大并发线程数16
+        // 1.8
+        //      初始化：延迟初始化table，自旋+CAS
+        //      Put: 自旋+CAS / synchronized 第一个节点（涉及锁升级知识，包括：无锁、偏向锁、自旋锁、重量锁）
+        ConcurrentHashMap<Character, Character> hashMap = new ConcurrentHashMap<>();
+        hashMap.put(new Character('a'), new Character('a'));
+        hashMap.put(new Character('b'), new Character('b'));
         System.out.println(hashMap);
     }
 }
