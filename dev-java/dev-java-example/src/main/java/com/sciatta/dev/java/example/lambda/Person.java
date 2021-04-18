@@ -69,4 +69,14 @@ public class Person implements Comparable<Person> {
     public static int desc(Person a, Person b) {
         return -a.getName().compareTo(b.getName());
     }
+    
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", birthday=" + birthday +
+                ", gender=" + gender +
+                ", emailAddress='" + emailAddress + '\'' +
+                '}';
+    }
 }
