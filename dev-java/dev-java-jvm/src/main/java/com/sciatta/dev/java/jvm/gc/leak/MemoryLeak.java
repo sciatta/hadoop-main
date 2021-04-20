@@ -1,4 +1,4 @@
-package com.sciatta.dev.java.jvm.gc;
+package com.sciatta.dev.java.jvm.gc.leak;
 
 import java.util.HashMap;
 import java.util.Map;
