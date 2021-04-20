@@ -51,8 +51,7 @@ public class FullGCLeak {
         return taskList;
     }
     
-    private static void modelFit() {
-        List<CardInfo> taskList = getAllCardInfo();
+    private static void modelFit(List<CardInfo> taskList) {
         taskList.forEach(cardInfo -> {
             executor.scheduleWithFixedDelay(() -> {
                 cardInfo.m();
@@ -61,12 +60,10 @@ public class FullGCLeak {
     }
     
     public static void main(String[] args) throws InterruptedException {
-        executor.setMaximumPoolSize(50);
+        // 没有意义，ScheduledThreadPoolExecutor使用无界队列
+        // executor.setMaximumPoolSize(50);
         
-        for (; ; ) {
-            modelFit();
-            Thread.sleep(100);
-        }
+        modelFit(getAllCardInfo());
     }
     
 }
