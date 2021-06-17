@@ -26,14 +26,17 @@ public class MethodTests {
 
         Animal dog = new Dog();
         dog.drink();    // override
+        dog.eat();  // 静态方法不支持多态
         Animal.eat();   // hide
-        Dog.eat();
+        Dog.eat();  // hide
 
         System.out.println();
 
         Animal tomato = new Cat();
         // 需要转型为Cat，才能调用其public的echo方法，因为Animal的echo方法是protected
         ((Cat) tomato).echo();
+    
+        System.out.println();
     }
 
     @Test
