@@ -33,9 +33,14 @@ public class LinkedListQueue<T> {
     
     public T dequeue() {
         T ret = null;
+        Node delete;
+        
         if (!empty()) {
+            delete = head;
             ret = head.data;
             head = head.next;
+            
+            delete = null; // help gc
         }
         return ret;
     }

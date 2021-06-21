@@ -33,14 +33,19 @@ public class LinkedListStack<T> {
     }
     
     public T pop() {
+        T ret;
+        
         if (head == null) {
             return null;
         }
         
         Node<T> delete = head;
         head = head.next;
+        ret = delete.v;
+        
+        delete = null;// help gc
         count--;
-        return delete.v;
+        return ret;
     }
     
     public T peek() {

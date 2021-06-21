@@ -26,7 +26,7 @@ public class BlockedArrayQueue<T> extends CyclicArrayQueue<T> {
                     if (i++ < retry) {
                         System.out.println("enqueue retry time: " + i + " current data is: " + data);
                     } else {
-                        throw new InterruptedException("enqueue retry time: " + i + " current data is: " + data);
+                        throw new BlockedArrayQueueException("enqueue retry time: " + i + " current data is: " + data);
                     }
                 } catch (InterruptedException e) {
                     throw new BlockedArrayQueueException("the queue is full, not allow to enqueue");
@@ -49,7 +49,7 @@ public class BlockedArrayQueue<T> extends CyclicArrayQueue<T> {
                     if (i++ < retry) {
                         System.out.println("dequeue retry time: " + i + " current data is: " + ret);
                     } else {
-                        throw new InterruptedException("dequeue retry time: " + i + " current data is: " + ret);
+                        throw new BlockedArrayQueueException("dequeue retry time: " + i + " current data is: " + ret);
                     }
                 } catch (InterruptedException e) {
                     throw new BlockedArrayQueueException("the queue is empty, not allow to dequeue");

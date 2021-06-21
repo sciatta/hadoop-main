@@ -11,16 +11,18 @@ import java.util.concurrent.TimeUnit;
  * PerformanceConcurrencyArrayQueue
  */
 public class PerformanceConcurrencyArrayQueue {
+    // 30 -- 如果线程数比较多的话，CAS性能不如悲观锁，CPU被打满，自旋浪费CPU资源，使得其他线程得不到运行
+    // 8 -- 线程并发度适中的情况下，CAS并发性能由于悲观锁
+    private static final int threadNum = 8;
     
-    private static final int thredNum = 30;
     private static final int elementNum = 3000000;
-    private static final int capacity = elementNum * thredNum * 2;
+    private static final int capacity = elementNum * threadNum;
     
     private static void pessimisticLock() throws InterruptedException {
         ConcurrencyArrayQueueWithPessimisticLock<Integer> queue = new ConcurrencyArrayQueueWithPessimisticLock<>(capacity);
         
-        Thread[] tin = new Thread[thredNum];
-        for (int i = 0; i < thredNum; i++) {
+        Thread[] tin = new Thread[threadNum];
+        for (int i = 0; i < threadNum; i++) {
             tin[i] = new Thread() {
                 @Override
                 public void run() {
@@ -32,8 +34,8 @@ public class PerformanceConcurrencyArrayQueue {
             tin[i].start();
         }
         
-        Thread[] tout = new Thread[thredNum];
-        for (int i = 0; i < thredNum; i++) {
+        Thread[] tout = new Thread[threadNum];
+        for (int i = 0; i < threadNum; i++) {
             tout[i] = new Thread() {
                 @Override
                 public void run() {
@@ -45,7 +47,7 @@ public class PerformanceConcurrencyArrayQueue {
             tout[i].start();
         }
         
-        for (int i = 0; i < thredNum; i++) {
+        for (int i = 0; i < threadNum; i++) {
             tin[i].join();
             tout[i].join();
         }
@@ -54,8 +56,8 @@ public class PerformanceConcurrencyArrayQueue {
     private static void cas() throws InterruptedException {
         ConcurrencyArrayQueueWithCAS<Integer> queue = new ConcurrencyArrayQueueWithCAS<>(capacity);
         
-        Thread[] tin = new Thread[thredNum];
-        for (int i = 0; i < thredNum; i++) {
+        Thread[] tin = new Thread[threadNum];
+        for (int i = 0; i < threadNum; i++) {
             tin[i] = new Thread() {
                 @Override
                 public void run() {
@@ -67,8 +69,8 @@ public class PerformanceConcurrencyArrayQueue {
             tin[i].start();
         }
         
-        Thread[] tout = new Thread[thredNum];
-        for (int i = 0; i < thredNum; i++) {
+        Thread[] tout = new Thread[threadNum];
+        for (int i = 0; i < threadNum; i++) {
             tout[i] = new Thread() {
                 @Override
                 public void run() {
@@ -80,7 +82,7 @@ public class PerformanceConcurrencyArrayQueue {
             tout[i].start();
         }
         
-        for (int i = 0; i < thredNum; i++) {
+        for (int i = 0; i < threadNum; i++) {
             tin[i].join();
             tout[i].join();
         }

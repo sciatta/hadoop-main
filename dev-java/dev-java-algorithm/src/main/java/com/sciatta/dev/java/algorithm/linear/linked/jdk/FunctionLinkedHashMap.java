@@ -10,7 +10,8 @@ import java.util.Map;
  */
 public class FunctionLinkedHashMap {
     public static void main(String[] args) {
-        // node放在比较小的数组中（默认16位），key 高16和低16异或，为了防止碰撞，使得高16位参与运算；如果碰撞，且冲突8个，则放到红黑树中，否则放到链表中
+        // node放在比较小的数组中（默认16位），key 高16和低16异或，为了防止碰撞，使得高16位参与运算；
+        // 解决碰撞：当链表长度大于8，但数组长度小于64位时，扩容数组，重新hash；如果数组长度大于64位时，则将链表转换为红黑树中
         Map<Integer, String> map = new LinkedHashMap<>();
     
         map.put(2, "2");
