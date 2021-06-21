@@ -20,6 +20,7 @@ public class BucketSort implements Sort {
     
     @Override
     public int[] sort(int[] array) {
+        // 指定桶的个数
         Object[] buckets = new Object[bucketNum];
         
         if (array.length == 0) {
@@ -40,7 +41,7 @@ public class BucketSort implements Sort {
         }
         int range = (max - min) / bucketNum + 1;
         
-        // 将待排序数组元素装入桶中，每个桶保持有序性
+        // 将待排序数组元素装入桶中，桶间保持有序性
         for (int e : array) {
             int index = (e - min) / range;
             Object bucket = buckets[index];

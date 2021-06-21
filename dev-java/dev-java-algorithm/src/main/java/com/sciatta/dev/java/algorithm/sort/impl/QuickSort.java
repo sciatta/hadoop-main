@@ -17,9 +17,10 @@ public class QuickSort implements Sort {
     }
     
     private void quickSort(int[] array, int start, int end) {
+        // 递归终止条件
         if (start >= end) return;
         
-        // 分区
+        // 分区，中轴和两边已经基本有序
         int pivotIndex = partition(array, start, end);
         
         // 左边排序
@@ -29,28 +30,29 @@ public class QuickSort implements Sort {
         quickSort(array, pivotIndex + 1, end);
     }
     
-    private int partition(int[] array, int start, int end) {
+    protected int partition(int[] array, int start, int end) {
         int pivot = selectPivot(array, start, end);    // 选择最后一个元素为中轴
         int temp;
         
         // 原地排序
-        int exchange = start;
+        // endPivotIndex是左边元素小于中轴元素的位置
+        int endPivotIndex = start;
         for (int i = start; i < end; i++) {
             if (array[i] <= array[pivot]) {
-                temp = array[exchange];
-                array[exchange] = array[i];
+                temp = array[endPivotIndex];
+                array[endPivotIndex] = array[i];
                 array[i] = temp;
-                
-                exchange++;
+    
+                endPivotIndex++;
             }
         }
         
-        // 中轴设置
+        // 交换中轴元素
         temp = array[pivot];
-        array[pivot] = array[exchange];
-        array[exchange] = temp;
+        array[pivot] = array[endPivotIndex];
+        array[endPivotIndex] = temp;
         
-        return exchange;
+        return endPivotIndex;
     }
     
     private int selectPivot(int[] array, int start, int end) {

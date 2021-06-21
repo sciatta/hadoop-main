@@ -5,7 +5,8 @@ import com.sciatta.dev.java.algorithm.sort.Sort;
 /**
  * Created by yangxiaoyu on 2021/3/30<br>
  * All Rights Reserved(C) 2017 - 2021 SCIATTA<br><p/>
- * 基数排序，从低位到高位进行计数排序，并且每一位排序必须遵循稳定性
+ * 基数排序：当数据量非常大时，无法通过比较排序（时间复杂度高），也不适用于计数排序（范围过大，如电话号码）；不适用于桶排序（桶的数量有限）；
+ * 可以对待排序数组的各位分别进行计数排序
  */
 public class RadixSort implements Sort {
     private final int radix;

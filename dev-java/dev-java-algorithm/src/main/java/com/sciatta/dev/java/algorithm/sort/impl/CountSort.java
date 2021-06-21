@@ -16,10 +16,11 @@ public class CountSort implements Sort {
     
     @Override
     public int[] sort(int[] array) {
+        // 初始化一个包含待排序数组所有可能出现元素的一个计数数组
         int[] countArray = new int[range];
         int[] result = new int[array.length];
         
-        // 对待排序数组中的元素累加计数
+        // 对待排序数组中的元素累加计数；其中元素作为计数数组的下标，计数数组的值为元素出现的个数
         for (int e : array) {
             countArray[e]++;
         }
@@ -29,7 +30,7 @@ public class CountSort implements Sort {
             countArray[i] = countArray[i - 1] + countArray[i];
         }
         
-        // 根据计数数组占位，对待排序数组排序
+        // 遍历待排序数组，根据在计数数组占位，对待排序数组排序
         for (int i = array.length - 1; i >= 0; i--) {
             // 倒序遍历对待排序保证稳定性
             result[countArray[array[i]] - 1] = array[i];

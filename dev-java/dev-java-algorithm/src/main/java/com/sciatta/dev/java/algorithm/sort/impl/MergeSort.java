@@ -16,7 +16,7 @@ public class MergeSort implements Sort {
     }
     
     private void mergeSort(int[] array, int start, int end) {
-        if (start >= end) return;   // 终止条件，单个元素可定有序
+        if (start >= end) return;   // 终止条件，单个元素肯定有序
         
         int middle = (end + start) / 2;
         
