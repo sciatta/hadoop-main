@@ -23,6 +23,7 @@
         <module>dev-java-database</module>
         <module>dev-java-rpc</module>
         <module>dev-java-dubbo</module>
+        <module>dev-java-designpattern</module>
     </modules>
 
 </project>
