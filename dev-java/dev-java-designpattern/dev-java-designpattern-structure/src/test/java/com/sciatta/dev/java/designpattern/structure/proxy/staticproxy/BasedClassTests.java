@@ -2,7 +2,7 @@ package com.sciatta.dev.java.designpattern.structure.proxy.staticproxy;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by yangxiaoyu on 2021/6/25<br>
