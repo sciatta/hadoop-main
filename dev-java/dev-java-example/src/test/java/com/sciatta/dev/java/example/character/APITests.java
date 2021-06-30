@@ -128,6 +128,15 @@ public class APITests {
         sb.append(" ");
         sb.append("world");
         assertEquals("hello world", sb.toString());
+        
+        System.out.println();
+        
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("hello");
+        stringBuilder.append("world");
+        System.out.println(stringBuilder.toString());
+        stringBuilder.replace(0, stringBuilder.toString().length(), "world");
+        System.out.println(stringBuilder.toString());
     }
     
     @Test
