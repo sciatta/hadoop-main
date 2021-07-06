@@ -21,7 +21,7 @@ public class InputCharacter {
             undoList.addLast(currentInput.toString());
             currentInput.append(str);
             
-            redoList.clear();   // 只要正常键入后，情况原有的重做列表
+            redoList.clear();   // 只要正常键入后，清除原有的重做列表
         }
         
         public boolean undo() {
@@ -65,7 +65,7 @@ public class InputCharacter {
             } else {
                 inputHolder.backUp(next);
             }
-            System.out.println("当前输入是：" + currentInput.toString());
+            System.out.println("当前输入是：" + currentInput);
         }
     }
     
