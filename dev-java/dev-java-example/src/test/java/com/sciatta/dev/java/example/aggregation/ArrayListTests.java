@@ -52,8 +52,39 @@ public class ArrayListTests {
     
     @Test
     public void testVector() {
+        // vector虽然每个方法都是同步的，但对于客户端调用vector的多个同步方法（多个同步方法的符合操作）并不是同步的，会导致数据不一致
         Vector<Integer> vector = new Vector<>();    // synchronized this，性能低
         vector.add(1);
         System.out.println(vector);
+    }
+    
+    @Test
+    public void testVectorToArray() {
+        Vector<Integer> vector = new Vector<>();
+        Integer a = new Integer(1000);
+        Integer b = new Integer(1001);
+        vector.add(a);
+        vector.add(b);
+        
+        Integer a1 = vector.get(0);
+        Integer b1 = vector.get(1);
+        
+        assertSame(a, a1);
+        assertSame(b, b1);
+    
+        // 拷贝一份新的指针
+        Object[] newVector = vector.toArray();
+        Object a2 = newVector[0];
+        Object b2 = newVector[1];
+        
+        assertSame(a, a2);
+        assertSame(b, b2);
+        // 改变新指针
+        a2 = b2;
+        assertSame(a2, b2);
+    
+        // 旧指针位置不变
+        assertSame(a, a1);
+        assertSame(b, b1);
     }
 }
