@@ -1,4 +1,4 @@
-package com.sciatta.dev.java.database.mall.imports;
+package com.sciatta.dev.java.database.jdbc.utils.imports;
 
 import lombok.extern.slf4j.Slf4j;
 

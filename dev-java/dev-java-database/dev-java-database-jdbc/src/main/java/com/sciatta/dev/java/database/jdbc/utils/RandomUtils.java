@@ -1,4 +1,4 @@
-package com.sciatta.dev.java.database.mall.utils;
+package com.sciatta.dev.java.database.jdbc.utils;
 
 import java.util.Random;
 

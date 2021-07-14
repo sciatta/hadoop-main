@@ -1,17 +1,17 @@
-package com.sciatta.dev.java.database.mall.model;
+package com.sciatta.dev.java.database.jdbc.model;
 
 import lombok.Data;
+
+import java.math.BigDecimal;
 
 /**
  * Created by yangxiaoyu on 2021/1/4<br>
  * All Rights Reserved(C) 2017 - 2021 SCIATTA<br><p/>
- * User
+ * Product
  */
 @Data
-public class User {
+public class Product {
     private int id;
     private String name;
-    private String nickname;
-    private String password;
-    private String idNumber;
+    private BigDecimal price;
 }

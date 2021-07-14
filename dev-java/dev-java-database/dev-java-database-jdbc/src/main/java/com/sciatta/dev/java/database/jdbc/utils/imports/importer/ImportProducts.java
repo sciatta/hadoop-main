@@ -1,7 +1,7 @@
-package com.sciatta.dev.java.database.mall.imports.importer;
+package com.sciatta.dev.java.database.jdbc.utils.imports.importer;
 
-import com.sciatta.dev.java.database.mall.imports.AbstractImport;
-import com.sciatta.dev.java.database.mall.utils.RandomUtils;
+import com.sciatta.dev.java.database.jdbc.utils.imports.AbstractImport;
+import com.sciatta.dev.java.database.jdbc.utils.RandomUtils;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;

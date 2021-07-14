@@ -1,8 +1,8 @@
-package com.sciatta.dev.java.database.mall.imports.importer;
+package com.sciatta.dev.java.database.jdbc.utils.imports.importer;
 
-import com.sciatta.dev.java.database.mall.imports.AbstractImport;
-import com.sciatta.dev.java.database.mall.model.Product;
-import com.sciatta.dev.java.database.mall.model.User;
+import com.sciatta.dev.java.database.jdbc.utils.imports.AbstractImport;
+import com.sciatta.dev.java.database.jdbc.model.Product;
+import com.sciatta.dev.java.database.jdbc.model.User;
 import lombok.extern.slf4j.Slf4j;
 
 import java.math.BigDecimal;

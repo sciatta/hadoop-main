@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>dev-java-database-mall</artifactId>
+    <artifactId>dev-java-database-jdbc</artifactId>
 
     <dependencies>
         <!-- mysql -->

@@ -12,7 +12,7 @@
     <artifactId>dev-java-database</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>dev-java-database-mall</module>
+        <module>dev-java-database-jdbc</module>
         <module>dev-java-database-datasource</module>
         <module>dev-java-database-cache</module>
         <module>dev-java-database-redis</module>
