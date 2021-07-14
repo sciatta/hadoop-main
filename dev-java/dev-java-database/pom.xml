@@ -16,6 +16,7 @@
         <module>dev-java-database-datasource</module>
         <module>dev-java-database-cache</module>
         <module>dev-java-database-redis</module>
+        <module>dev-java-database-jdbc-spring</module>
     </modules>
 
     <properties>
