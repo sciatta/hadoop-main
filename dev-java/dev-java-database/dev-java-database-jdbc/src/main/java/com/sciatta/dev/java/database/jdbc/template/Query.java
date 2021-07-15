@@ -15,17 +15,19 @@ public class Query extends AbstractJdbcExecute {
         
         execute("select * from users", result -> {
             if (result instanceof ResultSet) {
-                ResultSet rsToUse = (ResultSet) result;
-                
-                while (rsToUse.next()) {
-                    User user = new User(rsToUse.getInt("id"),
-                            rsToUse.getString("name"),
-                            rsToUse.getString("nickname"),
-                            rsToUse.getString("password"),
-                            rsToUse.getString("password")
-                    );
-                    System.out.println(user);
+    
+                try (ResultSet rsToUse = (ResultSet) result) {  // 关闭ResultSet
+                    while (rsToUse.next()) {
+                        User user = new User(rsToUse.getInt("id"),
+                                rsToUse.getString("name"),
+                                rsToUse.getString("nickname"),
+                                rsToUse.getString("password"),
+                                rsToUse.getString("password")
+                        );
+                        System.out.println(user);
+                    }
                 }
+                
             }
         });
         

@@ -28,9 +28,10 @@ public abstract class AbstractJdbcExecute {
     // 模板模式，ConsumeExecuteResult是一个同步callback
     protected void execute(String sql, ConsumeExecuteResult consumeExecuteResult) {
         Connection connection = null;
+        Statement statement = null;
         try {
             connection = getConnection();
-            Statement statement = getStatement(connection);
+            statement = getStatement(connection);
             
             // 区分执行类别
             consumeExecuteResult.consume(execute(statement, sql));
@@ -38,6 +39,13 @@ public abstract class AbstractJdbcExecute {
         } catch (SQLException troubles) {
             troubles.printStackTrace();
         } finally {
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
+            }
             if (connection != null) {
                 try {
                     connection.close();
