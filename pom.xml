@@ -55,7 +55,7 @@
         <netty.version>4.1.45.Final</netty.version>
         <fastjson.version>1.2.38</fastjson.version>
         <aspectjweaver.version>1.9.4</aspectjweaver.version>
-        <httpclient.version>4.5.5</httpclient.version>
+        <httpclient.version>4.5.13</httpclient.version>
         <httpasyncclient.version>4.1.4</httpasyncclient.version>
         <guava.version>29.0-jre</guava.version>
         <dubbo.version>2.6.9</dubbo.version>
