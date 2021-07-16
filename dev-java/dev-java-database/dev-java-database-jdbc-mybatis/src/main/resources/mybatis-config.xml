@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <!-- 配置属性定义 -->
+    <properties>
+        <property name="jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="jdbc.url" value="jdbc:mysql://localhost:3306/mall"/>
+        <property name="jdbc.username" value="root"/>
+        <property name="jdbc.password" value="root"/>
+    </properties>
+
+    <!-- 全局配置 -->
+    <settings>
+        <!-- 一级缓存，session级别；默认开启；配置：1、select节点的useCache="true"-->
+        <!-- 二级缓存，mapper级别；默认不开启，多个session共享；配置：1、<setting name="cacheEnabled" value="true"/>；2、在mapper中设置<cache/>；3、缓存的对象要序列化-->
+        <setting name="cacheEnabled" value="false"/>
+        <setting name="useGeneratedKeys" value="true"/>
+        <setting name="defaultExecutorType" value="REUSE"/> <!-- Executor重用PreparedStatement -->
+    </settings>
+
+    <!-- 配置别名，不区分大小写 -->
+    <typeAliases>
+        <typeAlias alias="User" type="com.sciatta.dev.java.database.jdbc.mybatis.pojo.User"/>
+    </typeAliases>
+
+    <!-- 配置环境 -->
+    <environments default="development">
+        <environment id="development">
+            <!-- 事务管理器 -->
+            <transactionManager type="jdbc"/>
+            <!-- 数据源 -->
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>    <!-- 引用配置属性 -->
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!-- 指定映射文件 -->
+    <mappers>
+        <mapper resource="UserMapper.xml"/>
+    </mappers>
+</configuration>

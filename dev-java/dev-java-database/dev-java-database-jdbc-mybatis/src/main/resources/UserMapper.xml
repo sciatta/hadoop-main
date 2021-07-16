@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace对应Mapper接口 -->
+<mapper namespace="com.sciatta.dev.java.database.jdbc.mybatis.dao.UserMapper">
+    <!-- pojo和数据库字段对应关系映射 -->
+    <resultMap id="UserResultMap" type="User">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="nickname" column="nickname"/>
+        <result property="password" column="password"/>
+        <result property="idNumber" column="id_number"/>
+    </resultMap>
+
+    <!-- id对应Mapper接口中的方法 -->
+    <insert id="insertUser" parameterType="User">
+        insert into users(name, nickname, password, id_number) values (#{name}, #{nickname}, #{password}, #{idNumber})
+    </insert>
+
+    <!-- parameterType 入参类型 -->
+    <!-- resultType 出参类型 -->
+    <select id="getUser" resultMap="UserResultMap" parameterType="java.lang.Integer">
+        select * from users where id = #{id}
+    </select>
+</mapper>
