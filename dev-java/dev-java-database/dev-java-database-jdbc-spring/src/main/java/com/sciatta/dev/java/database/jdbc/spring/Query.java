@@ -19,7 +19,7 @@ public class Query extends AbstractSpringJdbc {
                         rs.getString("name"),
                         rs.getString("nickname"),
                         rs.getString("password"),
-                        rs.getString("password")
+                        rs.getString("id_number")
                 ));
         
         for (User user: users) {

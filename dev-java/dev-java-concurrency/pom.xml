@@ -11,12 +11,4 @@
 
     <artifactId>dev-java-concurrency</artifactId>
 
-    <dependencies>
-        <!-- jol -->
-        <dependency>
-            <groupId>org.openjdk.jol</groupId>
-            <artifactId>jol-core</artifactId>
-        </dependency>
-    </dependencies>
-
 </project>

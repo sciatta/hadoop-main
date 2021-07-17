@@ -18,6 +18,7 @@
         <module>dev-java-database-redis</module>
         <module>dev-java-database-jdbc-spring</module>
         <module>dev-java-database-jdbc-mybatis</module>
+        <module>dev-java-database-jdbc-tx</module>
     </modules>
 
     <properties>
