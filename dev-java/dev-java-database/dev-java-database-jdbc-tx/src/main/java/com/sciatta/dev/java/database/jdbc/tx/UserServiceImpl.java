@@ -17,20 +17,43 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
     private JdbcTemplate jdbcTemplate;
     
+    private UserService propagation;
+    
+    public void setPropagation(UserService propagation) {
+        this.propagation = propagation;
+    }
+    
     public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
     
     @Override
-    public void insertUser(User user) {
-        jdbcTemplate.update("insert into users(name,nickname,password,id_number) values(?,?,?,?)",
-                user.getName(), user.getNickname(), user.getPassword(), user.getIdNumber());
-        wantThrowRuntimeException(true);
+    @Transactional(propagation = Propagation.REQUIRED)
+    public void insertUserTestPropagation(User user, boolean firstException, boolean secondException) {
+        insertUser(user, false);
+        
+        user.setNickname("SmallBug");
+        try {
+            propagation.insertUser(user, secondException);
+        } catch (Throwable e) {
+            System.out.println(e.getMessage());
+        }
+        
+        wantThrowRuntimeException(firstException, "insertUserTestPropagation");
     }
     
     @Override
-    public List<User> findAllUsers() {
+    @Transactional(propagation = Propagation.NESTED)
+    public void insertUser(User user, boolean needRuntimeException) {
+        jdbcTemplate.update("insert into users(name,nickname,password,id_number) values(?,?,?,?)",
+                user.getName(), user.getNickname(), user.getPassword(), user.getIdNumber());
+        wantThrowRuntimeException(needRuntimeException, "insertUser");
+    }
     
+    @Override
+    @Transactional(propagation = Propagation.SUPPORTS)
+    public List<User> findAllUsers() {
+        
         return jdbcTemplate.query("select * from users", new RowMapper<User>() {
             
             @Override
@@ -46,9 +69,9 @@ public class UserServiceImpl implements UserService {
         });
     }
     
-    private void wantThrowRuntimeException(boolean want) {
+    private void wantThrowRuntimeException(boolean want, String message) {
         if (want) {
-           throw new RuntimeException("wantThrowRuntimeException");
+            throw new RuntimeException(message + " wantThrowRuntimeException");
         }
     }
 }

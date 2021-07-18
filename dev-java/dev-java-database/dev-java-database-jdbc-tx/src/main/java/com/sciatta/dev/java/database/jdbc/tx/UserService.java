@@ -1,8 +1,5 @@
 package com.sciatta.dev.java.database.jdbc.tx;
 
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
 
 /**
@@ -11,7 +8,10 @@ import java.util.List;
  * UserService
  */
 public interface UserService {
-    @Transactional(propagation = Propagation.REQUIRED)
-    void insertUser(User user);
+    
+    void insertUser(User user, boolean needRuntimeException);
+    
+    void insertUserTestPropagation(User user, boolean firstException, boolean secondException);
+    
     List<User> findAllUsers();
 }

@@ -25,5 +25,10 @@
 
     <bean id="userService" class="com.sciatta.dev.java.database.jdbc.tx.UserServiceImpl">
         <property name="jdbcTemplate" ref="jdbcTemplate"/>
+        <property name="propagation" ref="propagation"/>
+    </bean>
+
+    <bean id="propagation" class="com.sciatta.dev.java.database.jdbc.tx.UserServiceImpl">
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
 </beans>

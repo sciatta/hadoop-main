@@ -23,8 +23,13 @@ public class UserServiceTests {
     }
     
     @Test
-    public void testInsert() {
-        userService.insertUser(newUser());
+    public void testInsertNeedRollback() {
+        userService.insertUser(newUser(), true);
+    }
+    
+    @Test
+    public void testTxPropagation() {
+        userService.insertUserTestPropagation(newUser(), true, false);
     }
     
     @Test
