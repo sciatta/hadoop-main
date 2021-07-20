@@ -13,7 +13,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>dev-java-spring-core</module>
-        <module>dev-java-spring-boot-schoolstarter</module>
         <module>dev-java-spring-boot</module>
     </modules>
 </project>

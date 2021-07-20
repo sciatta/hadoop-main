@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>dev-java-rpc-javaspi</module>
+        <module>dev-java-rpc-dubbo</module>
     </modules>
 
     <properties>

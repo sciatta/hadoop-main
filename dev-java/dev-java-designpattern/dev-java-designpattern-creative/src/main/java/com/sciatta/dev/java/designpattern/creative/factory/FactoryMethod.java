@@ -3,7 +3,6 @@ package com.sciatta.dev.java.designpattern.creative.factory;
 import com.sciatta.dev.java.designpattern.creative.factory.product.Animal;
 import com.sciatta.dev.java.designpattern.creative.factory.product.Cat;
 import com.sciatta.dev.java.designpattern.creative.factory.product.Dog;
-import com.sun.applet2.AppletParameters;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;

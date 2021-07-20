@@ -22,8 +22,11 @@
         <module>dev-java-guava</module>
         <module>dev-java-database</module>
         <module>dev-java-rpc</module>
-        <module>dev-java-dubbo</module>
         <module>dev-java-designpattern</module>
+        <module>dev-java-hadoop</module>
+        <module>dev-java-spark</module>
+        <module>dev-java-zookeeper</module>
+        <module>dev-java-mq</module>
     </modules>
 
 </project>
