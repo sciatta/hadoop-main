@@ -3,22 +3,29 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>dev-java-spring</artifactId>
+        <artifactId>dev-java-spring-boot</artifactId>
         <groupId>com.sciatta.dev</groupId>
         <version>${revision}</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>dev-java-spring-boot</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>dev-java-spring-boot-api</module>
-        <module>dev-java-spring-boot-service</module>
-    </modules>
+    <artifactId>dev-java-spring-boot-api</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.sciatta.dev</groupId>
+            <artifactId>dev-java-spring-boot-service</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>
